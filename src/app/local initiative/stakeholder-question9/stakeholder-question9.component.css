@@ -2,11 +2,15 @@ nav{
   background-color: moccasin;
 }
 
-#border{
-  /*border-style: solid;*/
-  border-width: 1px;
-  /*border-color: grey;*/
+.first-row{
+  border: solid 1px gray;
   border-radius: 10px;
-
 }
 
+.col-5{
+  border: dotted 1px darkred;
+}
+
+.text-muted{
+  text-align: center;
+}
