@@ -3,9 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { StakeholderQuestion9Component } from './local initiative/stakeholder-question9/stakeholder-question9.component';
-import { StakeholderQuestion10Component } from './stakeholder-question10/stakeholder-question10.component';
-import { StakeholderQuestion11Component } from './stakeholder-question11/stakeholder-question11.component';
-import { StakeholderQuestion12Component } from './stakeholder-question12/stakeholder-question12.component';
+import { StakeholderQuestion10Component } from './local initiative/stakeholder-question10/stakeholder-question10.component';
+import { StakeholderQuestion11Component } from './local initiative/stakeholder-question11/stakeholder-question11.component';
+import { StakeholderQuestion12Component } from './local initiative/stakeholder-question12/stakeholder-question12.component';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { StakeholderQuestion12Component } from './stakeholder-question12/stakeho
     StakeholderQuestion12Component
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
