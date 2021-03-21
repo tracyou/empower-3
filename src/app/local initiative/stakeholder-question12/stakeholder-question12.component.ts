@@ -12,4 +12,7 @@ export class StakeholderQuestion12Component implements OnInit {
   ngOnInit(): void {
   }
 
+  onClickSubmit() {
+    alert('Your answers have been saved!');
+  }
 }
