@@ -24,7 +24,7 @@ export class MapComponent implements OnInit {
     var marker = new window['google'].maps.Marker({
       position: {lat: 52.370216, lng: 4.895168},
       map: map,
-      title: 'Hello World!',
+      title: 'Local Initiative',
       draggable: true,
       animation: window['google'].maps.Animation.DROP,
     });
@@ -32,9 +32,9 @@ export class MapComponent implements OnInit {
     var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
-      '<h3 id="thirdHeading" class="thirdHeading">tutsmake.com</h3>'+
+      '<h3 id="thirdHeading" class="thirdHeading">Local Initiative</h3>'+
       '<div id="bodyContent">'+
-      '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>'+
+      '<p>Information will be displayed here</p>'+
       '</div>'+
       '</div>';
 
