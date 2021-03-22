@@ -18,6 +18,7 @@ const appRoutes: Routes = [
 ];
 
 import { StakeholderQuestionsComponent } from './components/localInitiatives/stakeholder-questions/stakeholder-questions.component';
+import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { StakeholderQuestionsComponent } from './components/localInitiatives/sta
     MapComponent,
     ObjectivesComponent,
     HomeComponent,
-    StakeholderQuestionsComponent
+    StakeholderQuestionsComponent,
+    JourneyAssetsComponent
   ],
 
   imports: [
