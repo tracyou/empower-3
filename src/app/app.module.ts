@@ -5,6 +5,9 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MapComponent } from './components/map/map.component';
+import { ObjectivesComponent } from './localInitiatives/objectives/objectives.component';
+import {FormsModule} from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -12,10 +15,13 @@ import { MapComponent } from './components/map/map.component';
     NavbarComponent,
     FooterComponent,
     MapComponent
+    ObjectivesComponent,
+    HomeComponent
   ],
 
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
