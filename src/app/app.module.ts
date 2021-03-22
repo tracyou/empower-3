@@ -9,17 +9,16 @@ import { ObjectivesComponent } from './components/localInitiatives/objectives/ob
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import { StakeholderQuestionsComponent } from './components/localInitiatives/stakeholder-questions/stakeholder-questions.component';
+import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
 
 const appRoutes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'localInitiative', component: MapComponent},
   { path: 'objectives', component: ObjectivesComponent},
-  { path: 'stakeholders', component: StakeholderQuestionsComponent}
+  { path: 'stakeholders', component: StakeholderQuestionsComponent},
+  { path: 'journeyAssets', component: JourneyAssetsComponent}
 ];
-
-import { StakeholderQuestionsComponent } from './components/localInitiatives/stakeholder-questions/stakeholder-questions.component';
-import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
-
 
 @NgModule({
   declarations: [
