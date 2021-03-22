@@ -14,9 +14,9 @@ import { HomeComponent } from './components/home/home.component';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    MapComponent
+    MapComponent,
     ObjectivesComponent,
-    HomeComponent
+    HomeComponent,
   ],
 
   imports: [
