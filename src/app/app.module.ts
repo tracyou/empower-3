@@ -11,6 +11,7 @@ import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import { StakeholderQuestionsComponent } from './components/localInitiatives/stakeholder-questions/stakeholder-questions.component';
 import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
   { path: 'localInitiative', component: MapComponent},
   { path: 'objectives', component: ObjectivesComponent},
   { path: 'stakeholders', component: StakeholderQuestionsComponent},
-  { path: 'journeyAssets', component: JourneyAssetsComponent}
+  { path: 'journeyAssets', component: JourneyAssetsComponent},
+  { path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
@@ -30,7 +32,8 @@ const appRoutes: Routes = [
     ObjectivesComponent,
     HomeComponent,
     StakeholderQuestionsComponent,
-    JourneyAssetsComponent
+    JourneyAssetsComponent,
+    SignupComponent
   ],
 
   imports: [
