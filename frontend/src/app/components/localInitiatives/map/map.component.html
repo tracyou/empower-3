@@ -7,109 +7,145 @@
           <div class="col-sm">
             <div class="form-group">
               <h5>Where is the initiative located?</h5>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
-            <div class="form">
-              <h5>What is the (geographical) scale of the initiative?</h5>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Household</label>
+            <div class="form-row">
+              <div class="col-7">
+                <input type="text" class="form-control" placeholder="City">
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Plot or public building</label>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="State">
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Single street or square</label>
+              <div class="col">
+                <input type="text" class="form-control" placeholder="Zip">
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Neighborhood or village</label>
+            </div>
+            <div class="form-group">
+              <h5>Community/Initiative name</h5>
+              <input type="name" class="form-control" id="initiativeName" aria-describedby="nameHelp"
+                     placeholder="Enter name">
+            </div>
+            <div class="form-group row">
+              <div class="col-10">
+                <h5>Date of creation</h5>
+                <input class="form-control" type="date" id="date-input">
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Town</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>City</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Region</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Other</label>
-              </div>
+            </div>
+            <div class="form-group">
+              <h5>Project theme</h5>
+              <select id="inputState" class="form-control">
+                <option selected>Solar</option>
+                <option>Water usage</option>
+                <option>Heating</option>
+                <option>Else</option>
+              </select>
             </div>
           </div>
           <div class="col-sm">
             <div #mapRef style="width:100%;height:400px"></div>
           </div>
-
         </div>
-        <div class="form">
-          <h5>What is the sort of entity associated to it?</h5>
-          <div class="row">
-            <div class="col-sm">
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Individual</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Small or new community</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Large established community group</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Club (social, sports, etc.)</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Small company</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Large company</label>
-              </div>
+      </div>
+      <div class="card-body">
+        <div class="form-group row">
+          <div class="col">
+            <h5>Project goals (choose multiple):</h5>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck1">
+              <label class="form-check-label" for="gridCheck1">Reduce energy costs</label>
             </div>
-            <div class="col-sm">
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Landlord (VvE)</label>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck2">
+              <label class="form-check-label" for="gridCheck1">Improve energy usage</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck3">
+              <label class="form-check-label" for="gridCheck1">Create/install green energy technology</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck4">
+              <label class="form-check-label" for="gridCheck1">Create community value</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="gridCheck5">
+              <label class="form-check-label" for="gridCheck1">Reduce energy footprint</label>
+            </div>
+          </div>
+
+          <div class="col">
+            <legend class="col-form">
+              <h5>Project Challenges</h5>
+            </legend>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                Social - community building
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Economic - investment, funds
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+                Legal - regulations, approvals, policies
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios4" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+                Technical - infrastructure, technology, installation
+              </label>
+            </div>
+          </div>
+
+
+          <div class="form-group col">
+            <h5>How do you want to collaborate with other initiatives?</h5>
+            <select id="inputCollaborate" class="form-control">
+              <option selected>Getting technical support</option>
+              <option>Giving technical support</option>
+              <option>Networking/partnership</option>
+            </select>
+
+            <div class="row">
+              <h5>Community Expertise (choose multiple):</h5>
+            </div>
+            <div class="col-sm-10">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridExpertise1">
+                <label class="form-check-label" for="gridCheck1">Example 1</label>
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Energy Company or ESCo</label>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridExpertise2">
+                <label class="form-check-label" for="gridCheck2">Example 2</label>
               </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Entrepeneur</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Advisor or facilitator</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Public sector organization (school, health, care facility)</label>
-              </div>
-              <div class="form-item">
-                <input type="checkbox">
-                <label>Other: </label>
-                <textarea class="form-control" id="exampleFormControlTextarea2" rows="3"></textarea>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="gridExpertise3">
+                <label class="form-check-label" for="gridCheck3">Example 3</label>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-secondary" id="sumbitButton" routerLink="/objectives">Submit</button>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="inputEmail">Email address</label>
+          <input type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+          <label for="inputWebsite">Website</label>
+          <input type="url" class="form-control" id="inputWebsite" placeholder="www.example.com">
+        </div>
+        <div class="form-group">
+          <label for="inputPhone">Phone number</label>
+          <input type="number" class="form-control" id="inputPhone" placeholder="0612345678">
+        </div>
+      </div>
+      <button type="button" class="btn btn-secondary" id="sumbitButton" routerLink="">Submit</button>
     </div>
   </div>
 </div>
