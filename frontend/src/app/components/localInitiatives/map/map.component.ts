@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, ElementRef, ViewChild, OnInit} from '@angular/core';
 import {NgForm} from '@angular/forms';
+import {Initiatative} from './initiatative';
+import {InitiatativeService} from './initiatative.service';
 
 @Component({
   selector: 'app-map',
@@ -10,7 +12,9 @@ export class MapComponent implements OnInit {
 
   @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
 
-  constructor() {};
+  initiatatives: Initiatative[];
+
+  constructor(private initiatativeService: InitiatativeService) {};
 
   ngOnInit() {
     this.renderMap();

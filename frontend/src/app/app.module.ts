@@ -8,6 +8,7 @@ import { MapComponent } from './components/localInitiatives/map/map.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import {HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
