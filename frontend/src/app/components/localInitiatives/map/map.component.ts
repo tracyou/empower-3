@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, ElementRef, ViewChild, OnInit} from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-map',
@@ -62,4 +63,9 @@ export class MapComponent implements OnInit {
     } else {
       this.loadMap();
     }
-  }}
+  }
+
+  onClickSubmit(addForm: NgForm): void {
+    console.log(addForm.value);
+  }
+}
