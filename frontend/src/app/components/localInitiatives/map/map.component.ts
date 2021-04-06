@@ -70,6 +70,6 @@ export class MapComponent implements OnInit {
   }
 
   onClickSubmit(addForm: NgForm): void {
-    console.log(addForm.value);
+    console.log(addForm.value.inputPhone);
   }
 }
