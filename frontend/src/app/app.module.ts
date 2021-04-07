@@ -8,11 +8,13 @@ import { MapComponent } from './components/localInitiatives/map/map.component';
 import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
+import { InspirationComponent } from './components/inspiration/inspiration.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'localInitiative', component: MapComponent},
+  { path: 'inspiration', component: InspirationComponent},
 ];
 
 @NgModule({
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
     FooterComponent,
     MapComponent,
     HomeComponent,
-    NavbarComponent
+    NavbarComponent,
+    InspirationComponent
   ],
 
   imports: [
