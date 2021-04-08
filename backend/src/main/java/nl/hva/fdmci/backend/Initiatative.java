@@ -11,6 +11,9 @@ public class Initiatative implements Serializable {
   private String goals;
   private String challenges;
   private String expertise;
+  private String email;
+  private String website;
+  private int number;
 
   public int getId() {
     return id;
@@ -92,8 +95,6 @@ public class Initiatative implements Serializable {
     this.number = number;
   }
 
-  private String email;
-  private String website;
-  private int number;
+
 
 }

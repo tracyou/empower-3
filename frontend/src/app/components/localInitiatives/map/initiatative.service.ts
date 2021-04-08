@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {Initiatative} from './Initiatative';
 import {environment} from '../../../../environments/environment';
+import {all} from 'codelyzer/util/function';
 
 @Injectable({providedIn: 'root'})
 

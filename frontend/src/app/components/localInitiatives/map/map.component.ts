@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, ViewChild, OnInit} from '@angular/
 import {NgForm} from '@angular/forms';
 import {Initiatative} from './initiatative';
 import {InitiatativeService} from './initiatative.service';
+import {HttpErrorResponse} from '@angular/common/http';
 
 @Component({
   selector: 'app-map',
@@ -70,6 +71,16 @@ export class MapComponent implements OnInit {
   }
 
   onClickSubmit(addForm: NgForm): void {
-    console.log(addForm.value.inputPhone);
+    console.log(addForm.value);
+    this.initiatativeService.postInitiatative(addForm.value).subscribe(
+      (response: Initiatative) => {
+        console.log(response);
+        console.log(this.initiatativeService.getInitiatative());
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+        alert('Something went wrong.');
+      }
+    );
   }
 }
