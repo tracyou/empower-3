@@ -1,5 +1,6 @@
 package nl.hva.fdmci.backend;
 
+import org.springframework.context.annotation.Lazy;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +12,7 @@ import java.util.List;
 public class InitiatativeResource {
   private final InitiatativeService initiatativeService;
 
-  public InitiatativeResource(InitiatativeService initiatativeService) {
+  public InitiatativeResource(@Lazy InitiatativeService initiatativeService) {
     this.initiatativeService = initiatativeService;
   }
 
