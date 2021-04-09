@@ -17,6 +17,10 @@ public class User {
     this.description = description;
   }
 
+  public User() {
+
+  }
+
   public static User createRandomUser(int id) {
     return new User(id, "loser101", "hi123", "local initiative", "nice initiative", "we're very nice");
   }

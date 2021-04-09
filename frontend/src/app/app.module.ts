@@ -12,6 +12,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { StakeholderQuestionsComponent } from './components/localInitiatives/stakeholder-questions/stakeholder-questions.component';
 import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -40,6 +41,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserService} from '../../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
   }
 
+  // tslint:disable-next-line:typedef
+  onSignUp() {
+    const newUser = this.userService.createRandomUser();
+    this.userService.save(newUser);
+  }
 }
