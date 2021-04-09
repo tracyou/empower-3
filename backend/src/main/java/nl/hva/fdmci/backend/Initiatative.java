@@ -15,6 +15,19 @@ public class Initiatative implements Serializable {
   private String website;
   private int number;
 
+  public Initiatative(int id, String city, String collaboration, Date date, String goals, String challenges, String expertise, String email, String website, int number) {
+    this.id = id;
+    this.city = city;
+    this.collaboration = collaboration;
+    this.date = date;
+    this.goals = goals;
+    this.challenges = challenges;
+    this.expertise = expertise;
+    this.email = email;
+    this.website = website;
+    this.number = number;
+  }
+
   public int getId() {
     return id;
   }
