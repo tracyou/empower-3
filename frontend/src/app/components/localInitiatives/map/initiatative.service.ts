@@ -14,10 +14,10 @@ export class InitiatativeService {
   }
 
   public getInitiatative(): Observable<Initiatative[]>{
-    return this.http.get<any>('${this.apiServerUrl}/Initiatative/all');
+    return this.http.get<any>('http://localhost:8080/Initiatative/all');
   }
 
   public postInitiatative(initiatative: Initiatative): Observable<Initiatative>{
-    return this.http.post<Initiatative>('${this.apiServerUrl}/Initiatative/add', initiatative);
+    return this.http.post<Initiatative>('http://localhost:8080/Initiatative/add', initiatative);
   }
 }

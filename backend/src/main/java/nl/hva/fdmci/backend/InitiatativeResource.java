@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/initiative")
+@RequestMapping("initiative")
 public class InitiatativeResource {
   private final InitiatativeRepo initiatativeRepo = new InitiatativeRepo(new ArrayList<>());
 
