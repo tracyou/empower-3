@@ -13,20 +13,19 @@ export class UserService {
 
   constructor(private http: HttpClient) {
     this.users = [];
-    // this.restGetUsers().subscribe(posts => {
-    //   console.log(posts);
-    //   // @ts-ignore
-    //   this.users.push(...posts);
-    // });
+    this.restGetUsers().subscribe(posts => {
+      // @ts-ignore
+      console.log(...posts);
+    });
   }
 
-  // private restGetUsers(): Observable<User> {
-  //   // @ts-ignore
-  //   return this.http.get('https://localhost:8080/users');
-  // }
+  private restGetUsers(): Observable<User> {
+    // @ts-ignore
+    return this.http.get('http://localhost:8080/users');
+  }
 
   private restPostUser(user: User): Observable<User> {
-    return this.http.post<User>('https://localhost:8080/users', user);
+    return this.http.post<User>('http://localhost:8080/users', user);
   }
 
   save(user: User): User | null {
@@ -34,6 +33,7 @@ export class UserService {
     if (index < 0) {
       this.restPostUser(user).subscribe(data => {
         this.users.push(data);
+        console.log(data);
         return data;
       });
     }
