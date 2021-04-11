@@ -3,7 +3,23 @@ export interface Initiatative {
   city: string;
   collaboration: string;
   date: Date;
-  gaols: string;
-  challenges: string;
-  expertise: string;
+  gaolCreate: boolean;
+  gaolFootprint: boolean;
+  gaolGreen: boolean;
+  gaolImprove: boolean;
+  gaolReduce: boolean;
+  gridExpertise1: boolean;
+  gridExpertise2: boolean;
+  gridExpertise3: boolean;
+  gridRadios: string;
+  gridRadios2: string;
+  gridRadios3: string;
+  gridRadios4: string;
+  inputEmail: string;
+  inputPhone: number;
+  inputWebsite: string;
+  name: string;
+  selectedTheme: string;
+  state: string;
+  zip: string;
 }

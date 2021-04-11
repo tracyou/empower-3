@@ -8,25 +8,26 @@ public class Initiatative implements Serializable {
   private String city;
   private String collaboration;
   private Date date;
-  private String goals;
-  private String challenges;
-  private String expertise;
-  private String email;
-  private String website;
-  private int number;
+  private boolean goalCreate;
+  private boolean gaolFootprint;
+  private boolean gaolGreen;
+  private boolean gaolImprove;
+  private boolean gaolReduce;
+  private boolean gridExpertise1;
+  private boolean gridExpertise2;
+  private boolean gridExpertise3;
+  private String gridRadios;
+  private String gridRadios2;
+  private String gridRadios3;
+  private String gridRadios4;
+  private String inputEmail;
+  private int inputPhone;
+  private String inputWebsite;
+  private String name;
+  private String selectedTheme;
+  private String state;
+  private String zip;
 
-  public Initiatative(int id, String city, String collaboration, Date date, String goals, String challenges, String expertise, String email, String website, int number) {
-    this.id = id;
-    this.city = city;
-    this.collaboration = collaboration;
-    this.date = date;
-    this.goals = goals;
-    this.challenges = challenges;
-    this.expertise = expertise;
-    this.email = email;
-    this.website = website;
-    this.number = number;
-  }
 
   public int getId() {
     return id;
@@ -35,79 +36,4 @@ public class Initiatative implements Serializable {
   public void setId(int id) {
     this.id = id;
   }
-
-  public String getCity() {
-    return city;
-  }
-
-  public void setCity(String city) {
-    this.city = city;
-  }
-
-  public String getCollaboration() {
-    return collaboration;
-  }
-
-  public void setCollaboration(String collaboration) {
-    this.collaboration = collaboration;
-  }
-
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
-  public String getGoals() {
-    return goals;
-  }
-
-  public void setGoals(String goals) {
-    this.goals = goals;
-  }
-
-  public String getChallenges() {
-    return challenges;
-  }
-
-  public void setChallenges(String challenges) {
-    this.challenges = challenges;
-  }
-
-  public String getExpertise() {
-    return expertise;
-  }
-
-  public void setExpertise(String expertise) {
-    this.expertise = expertise;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getWebsite() {
-    return website;
-  }
-
-  public void setWebsite(String website) {
-    this.website = website;
-  }
-
-  public int getNumber() {
-    return number;
-  }
-
-  public void setNumber(int number) {
-    this.number = number;
-  }
-
-
-
 }

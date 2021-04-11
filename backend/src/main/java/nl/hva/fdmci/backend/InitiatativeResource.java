@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("initiative")
 public class InitiatativeResource {
   private final InitiatativeRepo initiatativeRepo = new InitiatativeRepo(new ArrayList<>());
@@ -19,7 +18,6 @@ public class InitiatativeResource {
     return new ResponseEntity<>(initiatatives, HttpStatus.OK);
   }
 
-  @CrossOrigin(origins = "http://localhost:4200")
   @PostMapping("/add")
   public ResponseEntity<Initiatative> addInitiatative(@RequestBody Initiatative initiatative){
     Initiatative newInitiatative = initiatativeRepo.save(initiatative);
