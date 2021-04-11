@@ -15,6 +15,7 @@ const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
   { path: 'localInitiative', component: MapComponent},
+  { path: 'localAuthority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
 ];
 
