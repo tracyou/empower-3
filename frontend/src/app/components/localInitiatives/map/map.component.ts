@@ -11,11 +11,14 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class MapComponent implements OnInit {
 
-  @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
+  @ViewChild('mapRef', {static: true}) mapElement: ElementRef;
 
-  initiatatives: Initiatative[];
+  private initiatative: Initiatative;
 
-  constructor(private initiatativeService: InitiatativeService) {};
+
+  constructor(private initiatativeService: InitiatativeService, initiatative: Initiatative) {
+    this.initiatative = initiatative;
+  };
 
   ngOnInit() {
     this.renderMap();
@@ -35,13 +38,13 @@ export class MapComponent implements OnInit {
       animation: window['google'].maps.Animation.DROP,
     });
 
-    var contentString = '<div id="content">'+
-      '<div id="siteNotice">'+
-      '</div>'+
-      '<h3 id="thirdHeading" class="thirdHeading">Local Initiative</h3>'+
-      '<div id="bodyContent">'+
-      '<p>Information will be displayed here</p>'+
-      '</div>'+
+    var contentString = '<div id="content">' +
+      '<div id="siteNotice">' +
+      '</div>' +
+      '<h3 id="thirdHeading" class="thirdHeading">Local Initiative</h3>' +
+      '<div id="bodyContent">' +
+      '<p>Information will be displayed here</p>' +
+      '</div>' +
       '</div>';
 
     var infowindow = new window['google'].maps.InfoWindow({
@@ -52,17 +55,18 @@ export class MapComponent implements OnInit {
       infowindow.open(map, marker);
     });
 
-  }
+  };
+
   renderMap() {
 
     window['initMap'] = () => {
       this.loadMap();
-    }
-    if(!window.document.getElementById('google-map-script')) {
-      var s = window.document.createElement("script");
-      s.id = "google-map-script";
-      s.type = "text/javascript";
-      s.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyCzfVzdH_CJuh0iTGrmw69Sal9ZWDkT69w&callback=initMap";
+    };
+    if (!window.document.getElementById('google-map-script')) {
+      var s = window.document.createElement('script');
+      s.id = 'google-map-script';
+      s.type = 'text/javascript';
+      s.src = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCzfVzdH_CJuh0iTGrmw69Sal9ZWDkT69w&callback=initMap';
 
       window.document.body.appendChild(s);
     } else {
