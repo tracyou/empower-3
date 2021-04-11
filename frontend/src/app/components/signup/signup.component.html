@@ -3,8 +3,8 @@
     <h3>Sign Up</h3>
     <form (ngSubmit)="onSignUp()">
       <input type="text" name="username" placeholder="new username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-      <input type="password" name="new-password" placeholder="password">
-      <input type="password" name="confirmPassword" placeholder="confirm password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+      <input type="password" name="new-password" placeholder="password" [(ngModel)]="password">
+      <input type="password" name="confirmPassword" placeholder="confirm password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
         <label for="exampleFormControlSelect1" style="padding-top: 7px; color: dimgrey">
           What type of user are you?
           <select class="form-control" id="exampleFormControlSelect1" style="width: 380px"  [(ngModel)]="userType" [ngModelOptions]="{standalone: true}">
