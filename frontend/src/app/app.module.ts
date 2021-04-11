@@ -9,6 +9,7 @@ import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import { InspirationComponent } from './components/inspiration/inspiration.component';
+import { LocalAuthorityComponent } from './components/local-authority/local-authority.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
     MapComponent,
     HomeComponent,
     NavbarComponent,
-    InspirationComponent
+    InspirationComponent,
+    LocalAuthorityComponent,
   ],
 
   imports: [
