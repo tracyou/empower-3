@@ -16,9 +16,15 @@ export class SignupComponent implements OnInit {
   @Input() title;
   @Input() description;
 
-  constructor(private userService: UserService, private router: Router) { }
+  usersList: User[];
+  isUnique: boolean;
+
+  constructor(private userService: UserService, private router: Router) {
+  }
 
   ngOnInit(): void {
+    this.usersList = this.userService.users;
+    console.log(this.usersList);
   }
 
   newUser(): User {
@@ -27,23 +33,38 @@ export class SignupComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSignUp() {
-    if (this.isFilled()) {
-      if (this.confirmPassword !== this.password) {
-        alert('password does not match');
+    this.isUsernameUnique();
+    if (this.isUnique === true) {
+      if (this.isFilled()) {
+        if (this.confirmPassword !== this.password) {
+          alert('Passwords do not match');
+        } else {
+          const newUser = this.newUser();
+          this.userService.save(newUser);
+          this.navigate();
+        }
       } else {
-        const newUser = this.newUser();
-        this.userService.save(newUser);
-        this.navigate();
+        console.log('All fields must be filled');
+        alert('All fields must be filled');
       }
-    } else {
-      console.log('all fields must be filled');
-      alert('all fields must be filled');
     }
   }
 
   // tslint:disable-next-line:typedef
   isFilled() {
     return this.username && this.password && this.confirmPassword && this.userType && this.title && this.description;
+  }
+
+  // tslint:disable-next-line:typedef
+  isUsernameUnique() {
+    for (const user of this.usersList) {
+      if (user.username === this.username) {
+        alert('Username is already taken. Please try another one.');
+        this.isUnique = false;
+      } else {
+        this.isUnique = true;
+      }
+    }
   }
 
   // tslint:disable-next-line:typedef

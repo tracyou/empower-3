@@ -15,7 +15,7 @@ export class UserService {
     this.users = [];
     this.restGetUsers().subscribe(posts => {
       // @ts-ignore
-      console.log(...posts);
+      this.users.push(...posts);
     });
   }
 
