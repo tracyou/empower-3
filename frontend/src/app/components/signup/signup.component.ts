@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,7 @@ export class SignupComponent implements OnInit {
   @Input() title;
   @Input() description;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -25,7 +27,15 @@ export class SignupComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   onSignUp() {
-    const newUser = this.newUser();
-    this.userService.save(newUser);
+    if (this.isFilled()) {
+      const newUser = this.newUser();
+      this.userService.save(newUser);
+      this.router.navigate(['/localInitiative']);
+    }
+  }
+
+  // tslint:disable-next-line:typedef
+  isFilled() {
+    return this.username && this.password && this.userType && this.title && this.description;
   }
 }
