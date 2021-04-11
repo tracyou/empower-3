@@ -4,15 +4,15 @@ public class User {
   private int id;
   private String username;
   private String password;
-  private String userKind;
+  private String userType;
   private String title;
   private String description;
 
-  public User(int id, String username, String password, String userKind, String title, String description) {
+  public User(int id, String username, String password, String userType, String title, String description) {
     this.id = id;
     this.username = username;
     this.password = password;
-    this.userKind = userKind;
+    this.userType = userType;
     this.title = title;
     this.description = description;
   }
@@ -47,6 +47,14 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getUserType() {
+    return userType;
+  }
+
+  public void setUserType(String userType) {
+    this.userType = userType;
   }
 
   public String getTitle() {

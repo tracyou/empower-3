@@ -29,7 +29,7 @@ export class UserService {
   }
 
   save(user: User): User | null {
-    const index = this.users.findIndex((item) => item.id === user.id);
+    const index = this.users.findIndex((item) => item.username === user.username);
     if (index < 0) {
       this.restPostUser(user).subscribe(data => {
         this.users.push(data);
@@ -38,9 +38,5 @@ export class UserService {
       });
     }
     return user;
-  }
-
-  createRandomUser(): User {
-    return this.user = User.createRandomUser();
   }
 }
