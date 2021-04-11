@@ -13,6 +13,7 @@ import { StakeholderQuestionsComponent } from './components/localInitiatives/sta
 import { JourneyAssetsComponent } from './components/localInitiatives/journey-assets/journey-assets.component';
 import { LocalAuthorityComponent } from './components/local-authority/local-authority.component';
 import { ProfileComponent } from './components/local-authority/profile/profile.component';
+import { InlogpaginaComponent } from './components/inlogpagina/inlogpagina.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -34,7 +35,8 @@ const appRoutes: Routes = [
     StakeholderQuestionsComponent,
     JourneyAssetsComponent,
     LocalAuthorityComponent,
-    ProfileComponent
+    ProfileComponent,
+    InlogpaginaComponent
   ],
 
   imports: [
