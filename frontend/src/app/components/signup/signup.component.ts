@@ -67,14 +67,12 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  function
-
   // tslint:disable-next-line:typedef
   navigate() {
     if (this.userType === 'I am a local initiative') {
       this.router.navigate(['/localInitiative']);
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/localAuthority']);
     }
   }
 }
