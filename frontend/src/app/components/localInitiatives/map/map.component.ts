@@ -1,4 +1,11 @@
 import {AfterViewInit, Component, ElementRef, ViewChild, OnInit} from '@angular/core';
+<<<<<<< Updated upstream
+=======
+import {NgForm} from '@angular/forms';
+import {InitiativeService} from './initiative.service';
+import {HttpErrorResponse} from '@angular/common/http';
+import {Initiative} from './initiative';
+>>>>>>> Stashed changes
 
 @Component({
   selector: 'app-map',
@@ -9,7 +16,12 @@ export class MapComponent implements OnInit {
 
   @ViewChild('mapRef', {static: true }) mapElement: ElementRef;
 
+<<<<<<< Updated upstream
   constructor() {};
+=======
+
+  constructor(private initiatativeService: InitiativeService) {
+
 
   ngOnInit() {
     this.renderMap();
@@ -62,4 +74,17 @@ export class MapComponent implements OnInit {
     } else {
       this.loadMap();
     }
-  }}
+
+  onClickSubmit(addForm: NgForm): void {
+    this.initiatativeService.postInitiatative(addForm.value).subscribe(
+      (response: Initiative) => {
+        console.log(response);
+        console.log(this.initiatativeService.getInitiatative());
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error.message);
+        alert('Something went wrong.');
+      }
+    );
+  }
+}

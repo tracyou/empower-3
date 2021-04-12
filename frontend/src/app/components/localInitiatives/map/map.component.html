@@ -7,6 +7,7 @@
           <div class="col-sm">
             <div class="form-group">
               <h5>Where is the initiative located?</h5>
+<<<<<<< Updated upstream
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
             </div>
             <div class="form">
@@ -14,6 +15,12 @@
               <div class="form-item">
                 <input type="checkbox">
                 <label>Household</label>
+=======
+            </div>
+            <div class="form-row">
+              <div class="col-7">
+                <input ngModel name="city" type="text" class="form-control" placeholder="City">
+>>>>>>> Stashed changes
               </div>
               <div class="form-item">
                 <input type="checkbox">
@@ -49,6 +56,7 @@
             <div #mapRef style="width:100%;height:400px"></div>
           </div>
 
+<<<<<<< Updated upstream
         </div>
         <div class="form">
           <h5>What is the sort of entity associated to it?</h5>
@@ -78,6 +86,49 @@
                 <input type="checkbox">
                 <label>Large company</label>
               </div>
+=======
+          <div class="col">
+            <div class="col-form">
+              <h5>Project Challenges</h5>
+            </div>
+            <div class="form-check">
+              <input ngModel name="gridRadios" class="form-check-input" type="radio" id="gridRadios1" value="option1">
+              <label class="form-check-label" for="gridRadios1">
+                Social - community building
+              </label>
+            </div>
+            <div class="form-check">
+              <input ngModel name="gridRadios2" class="form-check-input" type="radio" id="gridRadios2" value="option2">
+              <label class="form-check-label" for="gridRadios2">
+                Economic - investment, funds
+              </label>
+            </div>
+            <div class="form-check">
+              <input ngModel name="gridRadios3" class="form-check-input" type="radio" id="gridRadios3" value="option3">
+              <label class="form-check-label" for="gridRadios3">
+                Legal - regulations, approvals, policies
+              </label>
+            </div>
+            <div class="form-check">
+              <input ngModel name="gridRadios4" class="form-check-input" type="radio" id="gridRadios4" value="option3">
+              <label class="form-check-label" for="gridRadios4">
+                Technical - infrastructure, technology, installation
+              </label>
+            </div>
+          </div>
+
+
+          <div class="form-group col">
+            <h5>How do you want to collaborate with other initiatives?</h5>
+            <select ngModel name="collaboration" id="inputCollaborate" class="form-control">
+              <option selected>Getting technical support</option>
+              <option>Giving technical support</option>
+              <option>Networking/partnership</option>
+            </select>
+
+            <div class="row">
+              <h5>Community Expertise (choose multiple):</h5>
+>>>>>>> Stashed changes
             </div>
             <div class="col-sm">
               <div class="form-item">
