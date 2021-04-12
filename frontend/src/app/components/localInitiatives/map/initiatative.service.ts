@@ -8,7 +8,6 @@ import {all} from 'codelyzer/util/function';
 @Injectable({providedIn: 'root'})
 
 export class InitiatativeService {
-  private apiServerUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient) {
   }

@@ -8,6 +8,7 @@ public class InitiatativeRepo{
 
   public InitiatativeRepo(List<Initiatative> initiatativeList) {
     this.initiatativeList = initiatativeList;
+    this.createRandomEvent();
   }
 
   Initiatative save(Initiatative initiatative) {
@@ -21,5 +22,9 @@ public class InitiatativeRepo{
 
   public List<Initiatative> findAll() {
     return this.initiatativeList;
+  }
+
+  private void createRandomEvent(){
+    this.initiatativeList.add(Initiatative.createRandom());
   }
 }
