@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild, OnInit, Input} from '@angular/core';
 import {InitiativeService} from '../../../services/initiative.service';
 import {Initiative} from '../../../models/initiative';
 import {HttpErrorResponse} from '@angular/common/http';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -38,7 +39,7 @@ export class MapComponent implements OnInit {
   @ViewChild('mapRef', {static: true}) mapElement: ElementRef;
 
 
-  constructor(private initiativeService: InitiativeService) {
+  constructor(private initiativeService: InitiativeService, private router: Router) {
   }
 
   // tslint:disable-next-line:typedef
@@ -109,14 +110,6 @@ export class MapComponent implements OnInit {
   onClickSubmit(): void {
     const newInitiative = this.newInitiative();
     this.initiativeService.save(newInitiative);
-    // this.initiativeService.postInitiatative(newInitiative).subscribe(
-    //   posts => {
-    //     console.log(posts);
-    //     // console.log(this.initiativeService.getInitiative());
-    //   },
-    //   (error: HttpErrorResponse) => {
-    //     console.log(error.message);
-    //   }
-    // );
+    this.router.navigate(['/profile']);
   }
 }

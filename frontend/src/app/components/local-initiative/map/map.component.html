@@ -1,7 +1,7 @@
 <div class="row mt-5">
   <div class="col-md-9 mx-auto">
     <h3 class="text-left">Register as a local initiative:</h3>
-    <div class="card mt-3">
+    <form class="card mt-3" (ngSubmit)="onClickSubmit()">
       <div class="card-body">
         <div class="row">
           <div class="col-sm">
@@ -145,8 +145,7 @@
           <input name="inputPhone" type="number" class="form-control" id="inputPhone" placeholder="0612345678" [(ngModel)]="inputPhone">
         </div>
       </div>
-      <button type="submit" class="btn btn-secondary">Submit</button>
-      <button type="button" class="btn btn-secondary" id="sumbitButton" routerLink="">Next</button>
+      <button type="submit" class="btn btn-secondary" id="sumbitButton">Submit</button>
     </form>
   </div>
 </div>
