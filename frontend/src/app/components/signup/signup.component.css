@@ -70,3 +70,38 @@ input[type=text]:placeholder {
 *:focus {
   outline: none;
 }
+
+/*;*/
+
+.passwordValidation {
+  position: relative;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  padding: 0;
+  height: 0;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  opacity: 1;
+  overflow: hidden;
+  transition: height 300ms ease-in-out,
+              opacity 300ms ease-in-out;
+}
+
+.passwordValidation.active {
+  opacity: 1;
+  padding: 10px;
+  height: 160px;
+  overflow: visible;
+}
+
+.passwordValidation > div {
+  margin: 15px 10px;
+  color: red;
+}
+
+.passwordValidation > div.active {
+  color: green;
+}

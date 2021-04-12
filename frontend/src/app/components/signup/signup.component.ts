@@ -67,6 +67,8 @@ export class SignupComponent implements OnInit {
     }
   }
 
+  function
+
   // tslint:disable-next-line:typedef
   navigate() {
     if (this.userType === 'I am a local initiative') {
