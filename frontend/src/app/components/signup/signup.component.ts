@@ -31,8 +31,7 @@ export class SignupComponent implements OnInit {
     return new User(this.username, this.password, this.userType, this.title, this.description);
   }
 
-  // tslint:disable-next-line:typedef
-  onSignUp() {
+  onSignUp(): void {
     this.isUsernameUnique();
     if (this.isUnique === true) {
       if (this.isFilled()) {
@@ -66,11 +65,10 @@ export class SignupComponent implements OnInit {
       }
     }
   }
-
   // tslint:disable-next-line:typedef
   navigate() {
     if (this.userType === 'I am a local initiative') {
-      this.router.navigate(['/localInitiative']);
+      this.router.navigate(['/initiative']);
     } else {
       this.router.navigate(['/localAuthority']);
     }

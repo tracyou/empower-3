@@ -19,8 +19,8 @@ import { ProfileComponent } from './components/local-initiative/profile/profile.
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'localInitiative', component: MapComponent},
-  { path: 'localAuthority', component: LocalAuthorityComponent},
+  { path: 'initiative', component: MapComponent},
+  { path: 'authority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: InlogpaginaComponent},
