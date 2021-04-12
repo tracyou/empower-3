@@ -13,6 +13,8 @@ import {RouterModule, Routes} from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule} from '@angular/common/http';
 import {InlogpaginaComponent} from './components/inlogpagina/inlogpagina.component';
+import { ProfileComponent } from './components/local-initiative/profile/profile.component';
+
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'localAuthority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
   { path: 'signup', component: SignupComponent},
-  { path: 'login', component: InlogpaginaComponent}
+  { path: 'login', component: InlogpaginaComponent},
+  { path: 'profile', component: ProfileComponent},
 ];
 
 @NgModule({
@@ -30,11 +33,12 @@ const appRoutes: Routes = [
     FooterComponent,
     MapComponent,
     HomeComponent,
-    NavbarComponent,
     InspirationComponent,
     LocalAuthorityComponent,
+    NavbarComponent,
     SignupComponent,
     InlogpaginaComponent,
+    ProfileComponent,
   ],
 
   imports: [
