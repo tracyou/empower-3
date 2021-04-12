@@ -71,9 +71,8 @@ export class MapComponent implements OnInit {
     }
   }
 
-  onClickSubmit(addForm: Initiatative): void {
-    console.log(addForm);
-    this.initiatativeService.postInitiatative(addForm).subscribe(
+  onClickSubmit(addForm: NgForm): void {
+    this.initiatativeService.postInitiatative(addForm.value).subscribe(
       (response: Initiatative) => {
         console.log(response);
         console.log(this.initiatativeService.getInitiatative());
