@@ -1,7 +1,7 @@
 <div class="row mt-5">
   <div class="col-md-9 mx-auto">
     <h3 class="text-left">Scale and Location:</h3>
-    <form class="card mt-3" #addForm="ngForm" (ngSubmit)="onClickSubmit(addForm)">
+    <form class="card mt-3" (ngSubmit)="onClickSubmit()">
       <div class="card-body">
         <div class="row">
           <div class="col-sm">
@@ -10,29 +10,29 @@
             </div>
             <div class="form-row">
               <div class="col-7">
-                <input ngModel name="city" type="text" class="form-control" placeholder="City">
+                <input name="city" type="text" class="form-control" placeholder="City" [(ngModel)]="city" [ngModelOptions]="{standalone: true}">
               </div>
               <div class="col">
-                <input ngModel name="state" type="text" class="form-control" placeholder="State">
+                <input name="state" type="text" class="form-control" placeholder="State" [(ngModel)]="state" >
               </div>
               <div class="col">
-                <input ngModel name="zip" type="text" class="form-control" placeholder="Zip">
+                <input name="zip" type="text" class="form-control" placeholder="Zip" [(ngModel)]="zip">
               </div>
             </div>
             <div class="form-group">
               <h5>Community/Initiative name</h5>
-              <input ngModel name="name" type="text" class="form-control" id="initiativeName" aria-describedby="nameHelp"
-                     placeholder="Enter name">
+              <input name="name" type="text" class="form-control" id="initiativeName" aria-describedby="nameHelp"
+                     placeholder="Enter name" [(ngModel)]="name">
             </div>
             <div class="form-group row">
               <div class="col-10">
                 <h5>Date of creation</h5>
-                <input ngModel name="date" class="form-control" type="date" id="date-input">
+                <input name="date" class="form-control" type="date" id="date-input" [(ngModel)]="date">
               </div>
             </div>
             <div class="form-group">
               <h5>Project theme</h5>
-              <select ngModel name="selectTheme" id="inputState" class="form-control">
+              <select name="selectTheme" id="inputState" class="form-control"  [(ngModel)]="selectTheme" [ngModelOptions]="{standalone: true}">
                 <option selected>Solar</option>
                 <option>Water usage</option>
                 <option>Heating</option>
@@ -50,23 +50,23 @@
           <div class="col">
             <h5>Project goals (choose multiple):</h5>
             <div class="form-check">
-              <input ngModel name="goalReduce" class="form-check-input" type="checkbox" id="gridCheck1">
+              <input name="goalReduce" class="form-check-input" type="checkbox" id="gridCheck1" [(ngModel)]="gaolReduce">
               <label class="form-check-label" for="gridCheck1">Reduce energy costs</label>
             </div>
             <div class="form-check">
-              <input ngModel name="goalImprove" class="form-check-input" type="checkbox" id="gridCheck2">
+              <input name="goalImprove" class="form-check-input" type="checkbox" id="gridCheck2" [(ngModel)]="goalImprove">
               <label class="form-check-label" for="gridCheck2">Improve energy usage</label>
             </div>
             <div class="form-check">
-              <input ngModel name="goalGreen" class="form-check-input" type="checkbox" id="gridCheck3">
+              <input name="goalGreen" class="form-check-input" type="checkbox" id="gridCheck3" [(ngModel)]="goalGreen">
               <label class="form-check-label" for="gridCheck3">Create/install green energy technology</label>
             </div>
             <div class="form-check">
-              <input ngModel name="goalCreate" class="form-check-input" type="checkbox" id="gridCheck4">
+              <input name="goalCreate" class="form-check-input" type="checkbox" id="gridCheck4" [(ngModel)]="goalCreate">
               <label class="form-check-label" for="gridCheck4">Create community value</label>
             </div>
             <div class="form-check">
-              <input ngModel name="goalFootprint" class="form-check-input" type="checkbox" id="gridCheck5">
+              <input name="goalFootprint" class="form-check-input" type="checkbox" id="gridCheck5" [(ngModel)]="goalFootprint">
               <label class="form-check-label" for="gridCheck5">Reduce energy footprint</label>
             </div>
           </div>
@@ -76,25 +76,25 @@
               <h5>Project Challenges</h5>
             </div>
             <div class="form-check">
-              <input ngModel name="gridRadios" class="form-check-input" type="radio" id="gridRadios1" value="option1">
+              <input name="gridRadios" class="form-check-input" type="radio" id="gridRadios1" value="option1" [(ngModel)]="gridRadios">
               <label class="form-check-label" for="gridRadios1">
                 Social - community building
               </label>
             </div>
             <div class="form-check">
-              <input ngModel name="gridRadios2" class="form-check-input" type="radio" id="gridRadios2" value="option2">
+              <input name="gridRadios2" class="form-check-input" type="radio" id="gridRadios2" value="option2" [(ngModel)]="gridRadios2">
               <label class="form-check-label" for="gridRadios2">
                 Economic - investment, funds
               </label>
             </div>
             <div class="form-check">
-              <input ngModel name="gridRadios3" class="form-check-input" type="radio" id="gridRadios3" value="option3">
+              <input name="gridRadios3" class="form-check-input" type="radio" id="gridRadios3" value="option3" [(ngModel)]="gridRadios3">
               <label class="form-check-label" for="gridRadios3">
                 Legal - regulations, approvals, policies
               </label>
             </div>
             <div class="form-check">
-              <input ngModel name="gridRadios4" class="form-check-input" type="radio" id="gridRadios4" value="option3">
+              <input name="gridRadios4" class="form-check-input" type="radio" id="gridRadios4" value="option4" [(ngModel)]="gridRadios4">
               <label class="form-check-label" for="gridRadios4">
                 Technical - infrastructure, technology, installation
               </label>
@@ -104,7 +104,7 @@
 
           <div class="form-group col">
             <h5>How do you want to collaborate with other initiatatives?</h5>
-            <select ngModel name="collaboration" id="inputCollaborate" class="form-control">
+            <select name="collaboration" id="inputCollaborate" class="form-control"[(ngModel)]="collaboration" [ngModelOptions]="{standalone: true}">
               <option selected>Getting technical support</option>
               <option>Giving technical support</option>
               <option>Networking/partnership</option>

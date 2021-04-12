@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, ViewChild, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, ViewChild, OnInit, Input} from '@angular/core';
 import {NgForm} from '@angular/forms';
 import {Initiatative} from './initiatative';
 import {InitiatativeService} from './initiatative.service';
@@ -10,6 +10,23 @@ import {HttpErrorResponse} from '@angular/common/http';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  @Input() city;
+  @Input() state;
+  @Input() zip;
+  @Input() name;
+  @Input() date;
+  @Input() selectTheme;
+  @Input() gaolReduce;
+  @Input() goalImprove;
+  @Input() goalGreen;
+  @Input() goalCreate;
+  @Input() goalFootprint;
+  @Input() gridRadios;
+  @Input() gridRadios2;
+  @Input() gridRadios3;
+  @Input() gridRadios4;
+  @Input() collaboration;
+
 
   @ViewChild('mapRef', {static: true}) mapElement: ElementRef;
 
@@ -71,16 +88,16 @@ export class MapComponent implements OnInit {
     }
   }
 
-  onClickSubmit(addForm: NgForm): void {
-    this.initiatativeService.postInitiatative(addForm.value).subscribe(
-      (response: Initiatative) => {
-        console.log(response);
-        console.log(this.initiatativeService.getInitiatative());
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-        alert('Something went wrong.');
-      }
-    );
+  onClickSubmit(): void {
+    // this.initiatativeService.postInitiatative(.value).subscribe(
+    //   (response: Initiatative) => {
+    //     console.log(response);
+    //     console.log(this.initiatativeService.getInitiatative());
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     console.log(error.message);
+    //     alert('Something went wrong.');
+    //   }
+    // );
   }
 }
