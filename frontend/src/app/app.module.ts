@@ -33,7 +33,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     InspirationComponent,
     LocalAuthorityComponent,
-    SignupComponent
+    SignupComponent,
+    InlogpaginaComponent,
   ],
 
   imports: [
