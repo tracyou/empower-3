@@ -13,11 +13,8 @@ export class MapComponent implements OnInit {
 
   @ViewChild('mapRef', {static: true}) mapElement: ElementRef;
 
-  private initiatative: Initiatative;
 
-
-  constructor(private initiatativeService: InitiatativeService, initiatative: Initiatative) {
-    this.initiatative = initiatative;
+  constructor(private initiatativeService: InitiatativeService) {
   };
 
   ngOnInit() {
