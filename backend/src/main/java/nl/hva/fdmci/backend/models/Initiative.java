@@ -1,9 +1,9 @@
-package nl.hva.fdmci.backend;
+package nl.hva.fdmci.backend.models;
 
 import java.io.Serializable;
 import java.util.Date;
 
-public class Initiatative implements Serializable {
+public class Initiative implements Serializable {
   private int id;
   private String city;
   private String collaboration;
@@ -54,13 +54,13 @@ public class Initiatative implements Serializable {
 //    this.state = state;
 //    this.zip = zip;
 //  }
-  public Initiatative(int id, String city) {
+  public Initiative(int id, String city) {
     this.id = id;
     this.city = city;
   }
 
-  public static Initiatative createRandom(){
-    return new Initiatative(0, "city");
+  public static Initiative createRandom(){
+    return new Initiative(0, "city");
   }
 
   public int getId() {

@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-sm">
             <div class="form-group">
-              <h5>Where is the initiatative located?</h5>
+              <h5>Where is the initiative located?</h5>
             </div>
             <div class="form-row">
               <div class="col-7">
@@ -50,7 +50,7 @@
           <div class="col">
             <h5>Project goals (choose multiple):</h5>
             <div class="form-check">
-              <input name="goalReduce" class="form-check-input" type="checkbox" id="gridCheck1" [(ngModel)]="gaolReduce">
+              <input name="goalReduce" class="form-check-input" type="checkbox" id="gridCheck1" [(ngModel)]="goalReduce">
               <label class="form-check-label" for="gridCheck1">Reduce energy costs</label>
             </div>
             <div class="form-check">
@@ -103,8 +103,8 @@
 
 
           <div class="form-group col">
-            <h5>How do you want to collaborate with other initiatatives?</h5>
-            <select name="collaboration" id="inputCollaborate" class="form-control"[(ngModel)]="collaboration" [ngModelOptions]="{standalone: true}">
+            <h5>How do you want to collaborate with other initiatives?</h5>
+            <select name="collaboration" id="inputCollaborate" class="form-control" [(ngModel)]="collaboration" [ngModelOptions]="{standalone: true}">
               <option selected>Getting technical support</option>
               <option>Giving technical support</option>
               <option>Networking/partnership</option>
@@ -115,15 +115,15 @@
             </div>
             <div class="col-sm-10">
               <div class="form-check">
-                <input ngModel name="gridExpertise1" class="form-check-input" type="checkbox" id="gridExpertise1">
+                <input name="gridExpertise1" class="form-check-input" type="checkbox" id="gridExpertise1" [(ngModel)]="gridExpertise1">
                 <label class="form-check-label" for="gridExpertise1">Example 1</label>
               </div>
               <div class="form-check">
-                <input ngModel name="gridExpertise2" class="form-check-input" type="checkbox" id="gridExpertise2">
+                <input name="gridExpertise2" class="form-check-input" type="checkbox" id="gridExpertise2" [(ngModel)]="gridExpertise2">
                 <label class="form-check-label" for="gridExpertise2">Example 2</label>
               </div>
               <div class="form-check">
-                <input ngModel name="gridExpertise3" class="form-check-input" type="checkbox" id="gridExpertise3">
+                <input name="gridExpertise3" class="form-check-input" type="checkbox" id="gridExpertise3" [(ngModel)]="gridExpertise3">
                 <label class="form-check-label" for="gridExpertise3">Example 3</label>
               </div>
             </div>
@@ -134,15 +134,15 @@
       <div class="col">
         <div class="form-group">
           <label for="inputEmail">Email address</label>
-          <input ngModel name="inputEmail" type="email" class="form-control" id="inputEmail" placeholder="name@example.com">
+          <input name="inputEmail" type="email" class="form-control" id="inputEmail" placeholder="name@example.com" [(ngModel)]="inputEmail">
         </div>
         <div class="form-group">
           <label for="inputWebsite">Website</label>
-          <input ngModel name="inputWebsite" type="url" class="form-control" id="inputWebsite" placeholder="www.example.com">
+          <input name="inputWebsite" type="url" class="form-control" id="inputWebsite" placeholder="www.example.com" [(ngModel)]="inputWebsite">
         </div>
         <div class="form-group">
           <label for="inputPhone">Phone number</label>
-          <input ngModel name="inputPhone" type="number" class="form-control" id="inputPhone" placeholder="0612345678">
+          <input name="inputPhone" type="number" class="form-control" id="inputPhone" placeholder="0612345678" [(ngModel)]="inputPhone">
         </div>
       </div>
       <button type="submit" class="btn btn-secondary">Submit</button>
