@@ -70,7 +70,7 @@ export class SignupComponent implements OnInit {
     if (this.userType === 'I am a local initiative') {
       this.router.navigate(['/initiative']);
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/localAuthority']);
     }
   }
 }
