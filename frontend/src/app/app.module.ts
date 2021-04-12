@@ -5,11 +5,13 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MapComponent } from './components/localInitiatives/map/map.component';
-import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
-import {RouterModule, Routes} from '@angular/router';
 import { InspirationComponent } from './components/inspiration/inspiration.component';
 import { LocalAuthorityComponent } from './components/local-authority/local-authority.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
+import {RouterModule, Routes} from '@angular/router';
+import { SignupComponent } from './components/signup/signup.component';
+import { HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -17,6 +19,7 @@ const appRoutes: Routes = [
   { path: 'localInitiative', component: MapComponent},
   { path: 'localAuthority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
+  { path: 'signup', component: SignupComponent}
 ];
 
 @NgModule({
@@ -28,12 +31,15 @@ const appRoutes: Routes = [
     NavbarComponent,
     InspirationComponent,
     LocalAuthorityComponent,
+    SignupComponent
   ],
 
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
