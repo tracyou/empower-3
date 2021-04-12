@@ -41,7 +41,7 @@ export class InlogpaginaComponent implements OnInit {
       for (const user of this.usersList) {
         if (this.username === user.username && this.password === user.password) {
           this.inCorrect = false;
-          this.router.navigate(['/localInitiative']);
+          this.router.navigate(['/home']);
         } else {
           this.inCorrect = true;
         }

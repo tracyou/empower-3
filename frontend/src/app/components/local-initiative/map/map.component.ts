@@ -110,6 +110,6 @@ export class MapComponent implements OnInit {
   onClickSubmit(): void {
     const newInitiative = this.newInitiative();
     this.initiativeService.save(newInitiative);
-    this.router.navigate(['/profile']);
+    this.router.navigate(['/profileInitiative']);
   }
 }

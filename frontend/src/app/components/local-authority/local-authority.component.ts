@@ -11,7 +11,8 @@ export class LocalAuthorityComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmitClick() {
+
+  onSubmitClick(): void {
     confirm('Your answers are saved!');
   }
 }

@@ -49,13 +49,11 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line:typedef
-  isFilled() {
+  isFilled(): boolean {
     return this.username && this.password && this.confirmPassword && this.userType && this.title && this.description;
   }
 
-  // tslint:disable-next-line:typedef
-  isUsernameUnique() {
+  isUsernameUnique(): void {
     for (const user of this.usersList) {
       if (user.username === this.username) {
         alert('Username is already taken. Please try another one.');
@@ -65,12 +63,12 @@ export class SignupComponent implements OnInit {
       }
     }
   }
-  // tslint:disable-next-line:typedef
-  navigate() {
+
+  navigate(): void {
     if (this.userType === 'I am a local initiative') {
       this.router.navigate(['/initiative']);
     } else {
-      this.router.navigate(['/localAuthority']);
+      this.router.navigate(['/authority']);
     }
   }
 }

@@ -24,7 +24,7 @@ const appRoutes: Routes = [
   { path: 'inspiration', component: InspirationComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: InlogpaginaComponent},
-  { path: 'profile', component: ProfileComponent},
+  { path: 'profileInitiative', component: ProfileComponent},
 ];
 
 @NgModule({
