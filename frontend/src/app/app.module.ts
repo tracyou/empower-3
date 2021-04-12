@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import {RouterModule, Routes} from '@angular/router';
 import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule} from '@angular/common/http';
+import {InlogpaginaComponent} from './components/inlogpagina/inlogpagina.component';
 
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
@@ -19,7 +20,8 @@ const appRoutes: Routes = [
   { path: 'localInitiative', component: MapComponent},
   { path: 'localAuthority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
-  { path: 'signup', component: SignupComponent}
+  { path: 'signup', component: SignupComponent},
+  { path: 'login', component: InlogpaginaComponent}
 ];
 
 @NgModule({
