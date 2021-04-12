@@ -46,6 +46,8 @@ export class SignupComponent implements OnInit {
         console.log('All fields must be filled');
         alert('All fields must be filled');
       }
+    } else {
+      alert('This username is already taken, try another one.');
     }
   }
 
@@ -55,12 +57,7 @@ export class SignupComponent implements OnInit {
 
   isUsernameUnique(): void {
     for (const user of this.usersList) {
-      if (user.username === this.username) {
-        alert('Username is already taken. Please try another one.');
-        this.isUnique = false;
-      } else {
-        this.isUnique = true;
-      }
+      this.isUnique = user.username !== this.username;
     }
   }
 

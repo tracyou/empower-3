@@ -23,19 +23,13 @@ export class InlogpaginaComponent implements OnInit {
     console.log(this.usersList);
   }
 
-  // tslint:disable-next-line:typedef
-  usernameExists() {
+  usernameExists(): void {
     for (const user of this.usersList) {
-      if (this.username !== user.username) {
-        this.nameExists = false;
-      } else {
-        this.nameExists = true;
-      }
+      this.nameExists = this.username === user.username;
     }
   }
 
-  // tslint:disable-next-line:typedef
-  correctPassword() {
+  correctPassword(): void {
     this.usernameExists();
     if (this.nameExists) {
       for (const user of this.usersList) {
@@ -54,8 +48,7 @@ export class InlogpaginaComponent implements OnInit {
     }
   }
 
-  // tslint:disable-next-line:typedef
-  onLogIn() {
+  onLogIn(): void {
     this.correctPassword();
   }
 }
