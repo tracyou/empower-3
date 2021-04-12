@@ -10,7 +10,10 @@ public class InitiativeRepository {
 
   public InitiativeRepository(List<Initiative> initiativeList) {
     this.initiativeList = initiativeList;
-    this.createRandomEvent();
+    for (int i = id; i < 4; i++) {
+      this.createRandomEvent(id);
+      id++;
+    }
   }
 
   public Initiative save(Initiative initiative) {
@@ -26,7 +29,7 @@ public class InitiativeRepository {
     return this.initiativeList;
   }
 
-  private void createRandomEvent(){
-    this.initiativeList.add(Initiative.createRandom());
+  private void createRandomEvent(int id){
+    this.initiativeList.add(Initiative.createRandom(id));
   }
 }

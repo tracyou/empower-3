@@ -1,9 +1,8 @@
 package nl.hva.fdmci.backend.models;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Initiative implements Serializable {
+public class Initiative {
   private int id;
   private String city;
   private String collaboration;
@@ -28,6 +27,10 @@ public class Initiative implements Serializable {
   private String state;
   private String zip;
 
+
+  public Initiative() {
+
+  };
 
 //  public Initiatative(int id, String city, String collaboration, Date date, String goalCreate, String gaolFootprint, String gaolGreen, String gaolImprove, String gaolReduce, String gridExpertise1, String gridExpertise2, String gridExpertise3, String gridRadios, String gridRadios2, String gridRadios3, String gridRadios4, String inputEmail, int inputPhone, String inputWebsite, String name, String selectedTheme, String state, String zip) {
 //    this.id = id;
@@ -59,8 +62,8 @@ public class Initiative implements Serializable {
     this.city = city;
   }
 
-  public static Initiative createRandom(){
-    return new Initiative(0, "city");
+  public static Initiative createRandom(int id){
+    return new Initiative(id, "city");
   }
 
   public int getId() {

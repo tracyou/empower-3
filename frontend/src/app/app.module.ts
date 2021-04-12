@@ -17,8 +17,8 @@ import {InlogpaginaComponent} from './components/inlogpagina/inlogpagina.compone
 const appRoutes: Routes = [
   { path : '', redirectTo: 'home', pathMatch: 'full'},
   { path: 'home', component: HomeComponent},
-  { path: 'localInitiative', component: MapComponent},
-  { path: 'localAuthority', component: LocalAuthorityComponent},
+  { path: 'initiative', component: MapComponent},
+  { path: 'authority', component: LocalAuthorityComponent},
   { path: 'inspiration', component: InspirationComponent},
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: InlogpaginaComponent}

@@ -32,6 +32,8 @@ export class MapComponent implements OnInit {
   @Input() inputWebsite;
   @Input() inputPhone;
 
+  initiativeList: Initiative[];
+
 
   @ViewChild('mapRef', {static: true}) mapElement: ElementRef;
 
@@ -42,10 +44,12 @@ export class MapComponent implements OnInit {
   // tslint:disable-next-line:typedef
   ngOnInit() {
     this.renderMap();
+    this.initiativeList = this.initiativeService.initiativeList;
+    console.log(this.initiativeList);
   }
 
   newInitiative(): Initiative {
-    return new Initiative(0, this.city, this.state, this.zip, this.name, this.date, this.selectTheme, this.goalReduce, this.goalImprove,
+    return new Initiative(this.city, this.state, this.zip, this.name, this.date, this.selectTheme, this.goalReduce, this.goalImprove,
       this.goalGreen, this.goalCreate, this.goalFootprint, this.gridRadios, this.gridRadios2, this.gridRadios3, this.gridRadios4,
       this.collaboration, this.gridExpertise1, this.gridExpertise2, this.gridExpertise3, this.inputEmail, this.inputWebsite,
       this.inputPhone);
@@ -104,15 +108,15 @@ export class MapComponent implements OnInit {
 
   onClickSubmit(): void {
     const newInitiative = this.newInitiative();
-    this.initiativeService.postInitiatative(newInitiative).subscribe(
-      (response: Initiative) => {
-        console.log(response);
-        console.log(this.initiativeService.getInitiative());
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error.message);
-        alert('Something went wrong.');
-      }
-    );
+    this.initiativeService.save(newInitiative);
+    // this.initiativeService.postInitiatative(newInitiative).subscribe(
+    //   posts => {
+    //     console.log(posts);
+    //     // console.log(this.initiativeService.getInitiative());
+    //   },
+    //   (error: HttpErrorResponse) => {
+    //     console.log(error.message);
+    //   }
+    // );
   }
 }
