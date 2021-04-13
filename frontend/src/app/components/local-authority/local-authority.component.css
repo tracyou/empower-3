@@ -1,3 +1,7 @@
+.form {
+  padding-bottom: 30px;
+}
+
 #sumbitButton {
   width: 150px;
   align-self: center;

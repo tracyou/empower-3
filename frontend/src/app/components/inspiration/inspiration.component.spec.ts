@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { JourneyAssetsComponent } from './journey-assets.component';
+import { InspirationComponent } from './inspiration.component';
 
-describe('JourneyAssetsComponent', () => {
-  let component: JourneyAssetsComponent;
-  let fixture: ComponentFixture<JourneyAssetsComponent>;
+describe('InspirationComponent', () => {
+  let component: InspirationComponent;
+  let fixture: ComponentFixture<InspirationComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ JourneyAssetsComponent ]
+      declarations: [ InspirationComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(JourneyAssetsComponent);
+    fixture = TestBed.createComponent(InspirationComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

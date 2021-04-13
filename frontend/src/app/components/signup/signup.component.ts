@@ -31,8 +31,7 @@ export class SignupComponent implements OnInit {
     return new User(this.username, this.password, this.userType, this.title, this.description);
   }
 
-  // tslint:disable-next-line:typedef
-  onSignUp() {
+  onSignUp(): void {
     this.isUsernameUnique();
     if (this.isUnique === true) {
       if (this.isFilled()) {
@@ -47,34 +46,26 @@ export class SignupComponent implements OnInit {
         console.log('All fields must be filled');
         alert('All fields must be filled');
       }
+    } else {
+      alert('This username is already taken, try another one.');
     }
   }
 
-  // tslint:disable-next-line:typedef
-  isFilled() {
+  isFilled(): boolean {
     return this.username && this.password && this.confirmPassword && this.userType && this.title && this.description;
   }
 
-  // tslint:disable-next-line:typedef
-  isUsernameUnique() {
+  isUsernameUnique(): void {
     for (const user of this.usersList) {
-      if (user.username === this.username) {
-        alert('Username is already taken. Please try another one.');
-        this.isUnique = false;
-      } else {
-        this.isUnique = true;
-      }
+      this.isUnique = user.username !== this.username;
     }
   }
 
-  function
-
-  // tslint:disable-next-line:typedef
-  navigate() {
+  navigate(): void {
     if (this.userType === 'I am a local initiative') {
-      this.router.navigate(['/localInitiative']);
+      this.router.navigate(['/initiative']);
     } else {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/authority']);
     }
   }
 }

@@ -9,19 +9,16 @@ import {HttpClient} from '@angular/common/http';
 export class UserService {
 
   users: User[];
-  user: User;
 
   constructor(private http: HttpClient) {
     this.users = [];
     this.restGetUsers().subscribe(posts => {
-      // @ts-ignore
       this.users.push(...posts);
     });
   }
 
-  private restGetUsers(): Observable<User> {
-    // @ts-ignore
-    return this.http.get('http://localhost:8080/users');
+  private restGetUsers(): Observable<User[]> {
+    return this.http.get<User[]>('http://localhost:8080/users');
   }
 
   private restPostUser(user: User): Observable<User> {

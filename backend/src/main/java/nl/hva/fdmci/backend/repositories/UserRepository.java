@@ -12,13 +12,11 @@ public class UserRepository {
 
   public UserRepository() {
     this.userList = new ArrayList<>();
-    for (int i = id; i < 4; i++) {
-      this.createRandomEvent(id);
-      id++;
-    }
+    this.createRandomUser(id);
+    id++;
   }
 
-  private void createRandomEvent(int id) {
+  private void createRandomUser(int id) {
     this.userList.add(User.createRandomUser(id));
   }
 
