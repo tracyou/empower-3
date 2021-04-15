@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   @Input() description;
 
   usersList: User[];
-  isUnique: boolean;
+  isUnique = false;
 
   constructor(private userService: UserService, private router: Router) {
   }
@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
 
   onSignUp(): void {
     this.isUsernameUnique();
-    if (this.isUnique === true) {
+    if (this.isUnique) {
       if (this.isFilled()) {
         if (this.confirmPassword !== this.password) {
           alert('Passwords do not match');
@@ -57,7 +57,12 @@ export class SignupComponent implements OnInit {
 
   isUsernameUnique(): void {
     for (const user of this.usersList) {
-      this.isUnique = user.username !== this.username;
+      if (user.username === this.username) {
+        console.log('username exists');
+        this.isUnique = true;
+      } else {
+        console.log('username does not exist');
+      }
     }
   }
 

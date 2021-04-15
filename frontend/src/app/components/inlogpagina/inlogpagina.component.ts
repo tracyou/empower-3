@@ -13,7 +13,7 @@ export class InlogpaginaComponent implements OnInit {
   @Input() password;
 
   private usersList: User[];
-  private nameExists: boolean;
+  private nameExists = false;
   private inCorrect: boolean;
 
   constructor(private userService: UserService, private router: Router) { }
@@ -25,7 +25,12 @@ export class InlogpaginaComponent implements OnInit {
 
   usernameExists(): void {
     for (const user of this.usersList) {
-      this.nameExists = this.username === user.username;
+      if (user.username === this.username) {
+        console.log('username exists');
+        this.nameExists = true;
+      } else {
+        console.log('username does not exist');
+      }
     }
   }
 
