@@ -14,6 +14,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule} from '@angular/common/http';
 import { InlogpaginaComponent } from './components/inlogpagina/inlogpagina.component';
 import { ProfileComponent } from './components/local-initiative/profile/profile.component';
+import { ProfileAuthorityComponent } from './components/local-authority/profile-authority/profile-authority.component';
 
 
 const appRoutes: Routes = [
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent},
   { path: 'login', component: InlogpaginaComponent},
   { path: 'profileInitiative', component: ProfileComponent},
+  { path: 'profileAuthority', component: ProfileAuthorityComponent},
 ];
 
 @NgModule({
@@ -39,6 +41,7 @@ const appRoutes: Routes = [
     SignupComponent,
     InlogpaginaComponent,
     ProfileComponent,
+    ProfileAuthorityComponent,
   ],
 
   imports: [
