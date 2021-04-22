@@ -41,6 +41,7 @@ export class InlogpaginaComponent implements OnInit {
         if (this.username === user.username && this.password === user.password) {
           this.inCorrect = false;
           this.router.navigate(['/home']);
+          break;
         } else {
           this.inCorrect = true;
         }

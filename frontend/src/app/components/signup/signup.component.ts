@@ -35,12 +35,12 @@ export class SignupComponent implements OnInit {
     this.isUsernameUnique();
     if (this.isUnique) {
       if (this.isFilled()) {
-        if (this.confirmPassword !== this.password) {
-          alert('Passwords do not match');
-        } else {
+        if (this.confirmPassword === this.password) {
           const newUser = this.newUser();
           this.userService.save(newUser);
           this.navigate();
+        } else {
+          alert('Passwords do not match');
         }
       } else {
         console.log('All fields must be filled');
@@ -59,9 +59,11 @@ export class SignupComponent implements OnInit {
     for (const user of this.usersList) {
       if (user.username === this.username) {
         console.log('username exists');
-        this.isUnique = true;
+        this.isUnique = false;
+        break;
       } else {
         console.log('username does not exist');
+        this.isUnique = true;
       }
     }
   }
