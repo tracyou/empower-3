@@ -9,6 +9,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  constructor(private userService: UserService, private router: Router) {
+  }
+
   @Input() username;
   @Input() password;
   @Input() confirmPassword;
@@ -18,9 +22,7 @@ export class SignupComponent implements OnInit {
 
   usersList: User[];
   isUnique = false;
-
-  constructor(private userService: UserService, private router: Router) {
-  }
+  pattern: RegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$');
 
   ngOnInit(): void {
     this.usersList = this.userService.users;
@@ -35,12 +37,16 @@ export class SignupComponent implements OnInit {
     this.isUsernameUnique();
     if (this.isUnique) {
       if (this.isFilled()) {
-        if (this.confirmPassword === this.password) {
-          const newUser = this.newUser();
-          this.userService.save(newUser);
-          this.navigate();
+        if (!this.pattern.test(this.password)) {
+          alert('Password should be validated');
         } else {
-          alert('Passwords do not match');
+          if (this.confirmPassword === this.password) {
+            const newUser = this.newUser();
+            this.userService.save(newUser);
+            this.navigate();
+          } else {
+            alert('Passwords do not match');
+          }
         }
       } else {
         console.log('All fields must be filled');

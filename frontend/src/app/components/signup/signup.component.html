@@ -3,22 +3,9 @@
     <h3>Sign Up</h3>
     <form (ngSubmit)="onSignUp()">
       <input type="text" name="username" placeholder="new username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-      <input type="password" name="password" id="password"  placeholder="password" [(ngModel)]="password">
-      <div class="passwordValidation">
-        <div class="characters">
-          8 Characters
-        </div>
-        <div class="lowerCase">
-          Contains Lowercase
-        </div>
-        <div class="upperCase">
-          Contains Uppercase
-        </div>
-        <div class="number">
-          Contains Number
-        </div>
-      </div>
-      <input type="password" name="confirmPassword" placeholder="confirm password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
+      <input type="text" name="password" id="password"  placeholder="password" [(ngModel)]="password" #pwField="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$">
+      <div *ngIf="!pwField.valid">Your password should contain at least:<br> 8 characters,<br> one digit,<br> one upper-case,<br> one special character (ex: .?!@#$%^&*_=+-).</div>
+      <input type="text" name="confirmPassword" placeholder="confirm password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
         <label for="exampleFormControlSelect1" style="padding-top: 7px; color: dimgrey">
           What type of user are you?
           <select class="form-control" id="exampleFormControlSelect1" style="width: 380px"  [(ngModel)]="userType" [ngModelOptions]="{standalone: true}">
@@ -32,21 +19,3 @@
     </form>
   </div>
 </div>
-<script>
-  function _id(name){
-    return document.getElementById(name);
-  }
-
-  function _class(name){
-    return document.getElementsByClassName(name);
-  }
-
-  _id("password").addEventListener("focus", function (){
-    console.log("hi");
-    _class("passwordValidation").classList.add("active");
-  })
-
-  _id("password").addEventListener("blur", function (){
-    _class("passwordValidation").classList.remove("active");
-  })
-</script>
