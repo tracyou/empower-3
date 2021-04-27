@@ -25,7 +25,7 @@ public class AuthorityRepository {
     return this.authorityList;
   }
 
-//  private void createRandomInitiative(int id){
-//    this.authorityList.add(Authority.createRandom(id));
-//  }
+  private void createRandomInitiative(int id){
+    this.authorityList.add(Authority.createRandom(id));
+  }
 }

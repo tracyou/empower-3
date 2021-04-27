@@ -10,6 +10,13 @@ public class Authority {
   private String toolDescription;
   private String support;
 
+  public Authority(int id, Object o, Object o1, Object o2, Object o3, Object o4, Object o5, Object o6) {
+  }
+
+  public static Authority createRandom(int id) {
+    return new Authority(id, null, null, null, null, null, null, null);
+  }
+
   public int getId() {
     return id;
   }
