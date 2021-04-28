@@ -10,8 +10,21 @@ public class Authority {
   private String toolDescription;
   private String support;
 
-  public Authority(int id, Object o, Object o1, Object o2, Object o3, Object o4, Object o5, Object o6) {
+  public Authority() {
+
   }
+
+  public Authority(int id, String parisAgreement, String sustainableGoals, String structure, String toolName, String toolLabel, String toolDescription, String support) {
+    this.id = id;
+    this.parisAgreement = parisAgreement;
+    this.sustainableGoals = sustainableGoals;
+    this.structure = structure;
+    this.toolName = toolName;
+    this.toolLabel = toolLabel;
+    this.toolDescription = toolDescription;
+    this.support = support;
+  }
+
 
   public static Authority createRandom(int id) {
     return new Authority(id, null, null, null, null, null, null, null);

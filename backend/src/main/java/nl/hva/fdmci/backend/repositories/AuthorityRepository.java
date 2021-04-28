@@ -6,26 +6,30 @@ import java.util.List;
 
 public class AuthorityRepository {
   private final List<Authority> authorityList;
-    int id = 1;
+  int id = 1;
 
   public AuthorityRepository(List<Authority> authorityList) {
     this.authorityList = authorityList;
-  }
-
-  public Authority save(Authority authority) {
-    if (authority.getId() == 0) {
-      authority.setId(id);
+    for (int i = id; i < 4; i++) {
+      this.createRandomAuthority(id);
       id++;
-      this.authorityList.add(authority);
     }
-    return authority;
   }
 
-  public List<Authority> findAll() {
-    return this.authorityList;
-  }
+    public Authority save (Authority authority){
+      if (authority.getId() == 0) {
+        authority.setId(id);
+        id++;
+        this.authorityList.add(authority);
+      }
+      return authority;
+    }
 
-  private void createRandomInitiative(int id){
-    this.authorityList.add(Authority.createRandom(id));
+    public List<Authority> findAll () {
+      return this.authorityList;
+    }
+
+    private void createRandomAuthority ( int id){
+      this.authorityList.add(Authority.createRandom(id));
+    }
   }
-}

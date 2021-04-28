@@ -28,6 +28,8 @@ export class LocalAuthorityComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.authorityList = this.authorityService.authorityList;
+    console.log(this.authorityList);
   }
 
   onSubmitClick(): void {
