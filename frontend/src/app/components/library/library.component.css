@@ -1,0 +1,31 @@
+.pb-video-container {
+  margin-top: 40px;
+  margin-left: 240px;
+  display: flex;
+}
+
+.row {
+  justify-content: center;
+}
+
+.pb-video {
+  border: 1px solid #e6e6e6;
+  padding: 5px;
+  background: #bdc3c7;
+}
+
+.pb-video:hover {
+  background-color: #009a67;
+}
+
+.pb-video-frame {
+  transition: width 1s, height 1s;
+}
+
+.pb-video-frame:hover {
+  height: 400px;
+}
+
+.pb-row {
+  margin-bottom: 10px;
+}
