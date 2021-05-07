@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild, OnInit, Input} from '@angular/core';
 import {InitiativeService} from '../../../services/initiative.service';
 import {Initiative} from '../../../models/initiative';
-import {HttpErrorResponse} from '@angular/common/http';
 import {Router} from '@angular/router';
 
 @Component({
