@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {AuthorityService} from "../../../services/authority.service";
 
 @Component({
   selector: 'app-profile',
@@ -7,7 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./profile-authority.component.css']
 })
 export class ProfileAuthorityComponent implements OnInit {
-  authorityName = "Name of Thingy";
+  authorityName = "help";
   developmentGoals = "Goals";
   parisAgreement = "true";
   structure = "very fluffy";
@@ -16,12 +17,16 @@ export class ProfileAuthorityComponent implements OnInit {
   toolDescription = "This is what the tool does";
   support = "need some support?";
 
+  authority = this.authorityService.getAuthority();
 
-  constructor(private router: Router) {
+
+  constructor(private authorityService: AuthorityService, private router: Router) {
+
   }
 
 
   ngOnInit(): void {
+    console.log(this.authority);
   }
 
 }

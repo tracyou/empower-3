@@ -26,6 +26,11 @@ export class AuthorityService {
     return this.http.post<Authority>('http://localhost:8080/authority', authority);
   }
 
+  //Post zoals hierboven maar naar profile-authority.components.ts??
+  public loadAuthority(authority: Authority){
+    return this.getAuthority();
+  }
+
   save(authority: Authority): Authority | null {
     const index = this.authorityList.findIndex((item) => item.toolName === authority.toolName);
     if (index < 0) {
@@ -37,4 +42,5 @@ export class AuthorityService {
     }
     return authority;
   }
+
 }

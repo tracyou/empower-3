@@ -32,4 +32,6 @@ public class AuthorityRepository {
     private void createRandomAuthority ( int id){
       this.authorityList.add(Authority.createRandom(id));
     }
+
+
   }

@@ -27,5 +27,7 @@ public class AuthorityController {
     Authority newAuthority = authorityRepository.save(authority);
     return new ResponseEntity<>(authority, HttpStatus.ACCEPTED);
   }
-  
-}
+
+  //GetMapping for showing stuff on frontend??
+
+  }
