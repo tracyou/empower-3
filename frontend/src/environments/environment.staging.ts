@@ -1,4 +1,5 @@
 export const environment = {
-  apiUrl: 'https://hva-be-app.herokuapp.com/rest',
-  environmentName: 'staging'
+  apiUrl: 'https://empower3-backend-staging.herokuapp.com/',
+  environmentName: 'staging',
+  staging: false
 };
