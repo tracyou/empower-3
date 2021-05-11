@@ -12,8 +12,10 @@ public class UserRepository {
 
   public UserRepository() {
     this.userList = new ArrayList<>();
-    this.createRandomUser(id);
-    id++;
+    for (int i = id; i < 4; i++) {
+      this.createRandomUser(id);
+      id++;
+    }
   }
 
   private void createRandomUser(int id) {
