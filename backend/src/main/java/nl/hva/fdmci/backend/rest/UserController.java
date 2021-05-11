@@ -3,6 +3,8 @@ package nl.hva.fdmci.backend.rest;
 import nl.hva.fdmci.backend.PreConditionFailed;
 import nl.hva.fdmci.backend.models.User;
 import nl.hva.fdmci.backend.repositories.UserRepository;
+import nl.hva.fdmci.backend.repositories.UserRepositoryJpa;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,8 @@ import java.util.List;
 @RestController
 public class UserController {
 
-  private final UserRepository repository= new UserRepository();
+  @Autowired
+  private final UserRepositoryJpa repository= new UserRepositoryJpa();
 
   @GetMapping("users")
   public List<User> getAllUsers() {
