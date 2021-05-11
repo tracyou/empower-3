@@ -1,5 +1,6 @@
 package nl.hva.fdmci.backend.repositories;
 
+import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
@@ -28,5 +29,11 @@ public class UserRepositoryJpa {
 
   public User save(User user) {
     return entityManager.merge(user);
+  }
+
+  public boolean deletedById(int id) {
+    User user = findById(id);
+    entityManager.remove(user);
+    return true;
   }
 }
