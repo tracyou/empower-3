@@ -1,9 +1,7 @@
 package nl.hva.fdmci.backend;
 
-import nl.hva.fdmci.backend.models.Initiative;
 import nl.hva.fdmci.backend.models.TrainingModule;
 import nl.hva.fdmci.backend.models.User;
-import nl.hva.fdmci.backend.repositories.InitiativeRepositoryJpa;
 import nl.hva.fdmci.backend.repositories.TrainingModuleRepository;
 import nl.hva.fdmci.backend.repositories.UserRepositoryJpa;
 import org.springframework.beans.factory.annotation.Autowired;
