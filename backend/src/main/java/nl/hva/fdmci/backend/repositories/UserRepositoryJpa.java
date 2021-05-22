@@ -1,8 +1,6 @@
 package nl.hva.fdmci.backend.repositories;
 
-import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -13,7 +11,6 @@ import java.util.List;
 
 @Repository
 @Transactional
-@Primary
 public class UserRepositoryJpa {
   @PersistenceContext
   EntityManager entityManager;

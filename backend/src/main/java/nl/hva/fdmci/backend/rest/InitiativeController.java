@@ -1,17 +1,16 @@
 package nl.hva.fdmci.backend.rest;
 
 import nl.hva.fdmci.backend.models.Initiative;
-import nl.hva.fdmci.backend.repositories.InitiativeRepository;
+import nl.hva.fdmci.backend.repositories.InitiativeRepositoryJpa;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class InitiativeController {
-  private final InitiativeRepository initiativeRepository = new InitiativeRepository(new ArrayList<>());
+  private InitiativeRepositoryJpa initiativeRepository;
 
   @GetMapping("initiative")
   public ResponseEntity<List<Initiative>> getAllInitiatative(){
