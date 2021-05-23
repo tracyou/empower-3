@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {TrainingModuleService} from '../../services/training-module.service';
 import {TrainingModule} from '../../models/training-module';
 import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inspiration',
@@ -15,10 +16,11 @@ export class InspirationComponent implements OnInit {
   @Input() language;
   modules: TrainingModule[];
 
-  constructor(private moduleService: TrainingModuleService) {
+  constructor(private moduleService: TrainingModuleService, private router: Router) {
   }
 
   ngOnInit(): void {
+    this.router.navigate(['/inspiration']);
     this.modules = this.moduleService.modules;
     console.log(this.modules);
   }
@@ -34,6 +36,7 @@ export class InspirationComponent implements OnInit {
         .subscribe(data => {
           this.modules.splice(0);
           this.modules.push(...data);
+          this.router.navigate(['/inspiration'], {queryParams: {tool: this.tool}});
         });
     }
 
@@ -42,6 +45,7 @@ export class InspirationComponent implements OnInit {
         .subscribe(data => {
           this.modules.splice(0);
           this.modules.push(...data);
+          this.router.navigate(['/inspiration'], {queryParams: {theme: this.theme}});
         });
     }
 
@@ -50,6 +54,7 @@ export class InspirationComponent implements OnInit {
         .subscribe(data => {
           this.modules.splice(0);
           this.modules.push(...data);
+          this.router.navigate(['/inspiration'], {queryParams: {location: this.location}});
         });
     }
 
@@ -58,6 +63,7 @@ export class InspirationComponent implements OnInit {
         .subscribe(data => {
           this.modules.splice(0);
           this.modules.push(...data);
+          this.router.navigate(['/inspiration'], {queryParams: {language: this.language}});
         });
     }
   }
