@@ -10,6 +10,6 @@ app.get('/*', (req, res) =>
   res.sendFile('index.html', {root: `dist/${pjson.name}`}),
 );
 
-console.log(`${pjson.name} running`);
+console.log(`${pjson.name} running`)
 
 app.listen(process.env.PORT || 8097);
