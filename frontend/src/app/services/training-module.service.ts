@@ -20,8 +20,23 @@ export class TrainingModuleService {
     return this.http.get('http://localhost:8080/modules');
   }
 
-  getRestModulesFilter(tool: string, theme: string, location: string, language: string): Observable<any> {
+  getRestModulesTool(tool: string): Observable<any> {
     return this.http.get(
-      'http://localhost:8080/modules/?tool=' + tool + '&theme=' + theme + '&location=' + location + '&language=' + language);
+      'http://localhost:8080/modules/?tool=' + tool);
+  }
+
+  getRestModulesTheme(theme: string): Observable<any> {
+    return this.http.get(
+      'http://localhost:8080/modules/?theme=' + theme);
+  }
+
+  getRestModulesLocation(location: string): Observable<any> {
+    return this.http.get(
+      'http://localhost:8080/modules/?location=' + location);
+  }
+
+  getRestModulesLanguage(language: string): Observable<any> {
+    return this.http.get(
+      'http://localhost:8080/modules/?language=' + language);
   }
 }

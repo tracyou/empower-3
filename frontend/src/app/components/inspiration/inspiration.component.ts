@@ -29,10 +29,36 @@ export class InspirationComponent implements OnInit {
   }
 
   filter(): Subscription {
-      return this.moduleService.getRestModulesFilter(this.tool, this.theme, this.location, this.language)
+    if (this.tool) {
+      return this.moduleService.getRestModulesTool(this.tool)
         .subscribe(data => {
           this.modules.splice(0);
           this.modules.push(...data);
         });
+    }
+
+    if (this.theme) {
+      return this.moduleService.getRestModulesTheme(this.theme)
+        .subscribe(data => {
+          this.modules.splice(0);
+          this.modules.push(...data);
+        });
+    }
+
+    if (this.location) {
+      return this.moduleService.getRestModulesLocation(this.location)
+        .subscribe(data => {
+          this.modules.splice(0);
+          this.modules.push(...data);
+        });
+    }
+
+    if (this.language) {
+      return this.moduleService.getRestModulesLanguage(this.language)
+        .subscribe(data => {
+          this.modules.splice(0);
+          this.modules.push(...data);
+        });
+    }
   }
 }
