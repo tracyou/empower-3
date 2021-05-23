@@ -3,11 +3,12 @@ package nl.hva.fdmci.backend.models;
 import javax.persistence.*;
 
 @Entity
+@SequenceGenerator(name = "user_id", initialValue = 1001)
 @NamedQuery(name = "find_all_users", query = "select u from User u")
 public class User {
 
   @Id
-  @GeneratedValue
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
   private int id;
 
   private String username;

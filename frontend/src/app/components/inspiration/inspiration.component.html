@@ -6,11 +6,11 @@
     <div class="col-2">
       <div class="form-group">
         <h5>Tools:</h5>
-        <select id="inputTools" class="form-control">
+        <select id="inputTools" class="form-control" [(ngModel)]="tool">
           <option selected>Calculator</option>
           <option>Guide</option>
           <option>Dashboard</option>
-          <option>Video Course</option>
+          <option>VideoCourse</option>
           <option>Library</option>
         </select>
       </div>
@@ -18,12 +18,12 @@
     <div class="col-2">
       <div class="form-group">
         <h5>Theme:</h5>
-        <select id="inputThemes" class="form-control">
+        <select id="inputThemes" class="form-control" [(ngModel)]="theme">
           <option selected>Heating</option>
-          <option>Solar Energy</option>
-          <option>Natural Gas</option>
-          <option>Public Part.</option>
-          <option>Water Usage</option>
+          <option>SolarEnergy</option>
+          <option>NaturalGas</option>
+          <option>PublicPart</option>
+          <option>WaterUsage</option>
           <option>All</option>
         </select>
       </div>
@@ -31,7 +31,7 @@
     <div class="col-2">
       <div class="form-group">
         <h5>Location:</h5>
-        <select id="inputLocation" class="form-control">
+        <select id="inputLocation" class="form-control" [(ngModel)]="location">
           <option selected>UK</option>
           <option>Netherlands</option>
           <option>Belgium</option>
@@ -43,7 +43,7 @@
     <div class="col-2">
       <div class="form-group">
         <h5>Language:</h5>
-        <select id="inputLanguage" class="form-control">
+        <select id="inputLanguage" class="form-control" [(ngModel)]="language">
           <option selected>English</option>
           <option>Dutch</option>
           <option>French</option>
@@ -51,65 +51,14 @@
         </select>
       </div>
     </div>
-    <button type="button" class="btn-lg btn-success" id="filterButton">Filter</button>
+    <button type="button" class="btn-lg btn-success" id="filterButton" (click)="onFilter()">Filter</button>
   </div>
 
   <div class="row" style="padding-top : 5px">
-    <div class="col-3">
+    <div class="col-3" *ngFor="let module of modules;">
       <div class="card">
-        <img class="card-img-top" src="..." alt="Picture of Initiative">
         <div class="card-body">
-          <h5 class="card-title">Example Initiative</h5>
-          <p class="card-text">A quick introduction about the initiative here.</p>
-          <a class="btn btn-primary">Learn more!</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Picture of Initiative">
-        <div class="card-body">
-          <h5 class="card-title">Example Initiative</h5>
-          <p class="card-text">A quick introduction about the initiative here.</p>
-          <a class="btn btn-primary">Learn more!</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Picture of Initiative">
-      <div class="card-body">
-        <h5 class="card-title">Example Initiative</h5>
-        <p class="card-text">A quick introduction about the initiative here.</p>
-        <a class="btn btn-primary">Learn more!</a>
-      </div>
-    </div>
-  </div>
-    <div class="col-3">
-    <div class="card">
-      <img class="card-img-top" src="..." alt="Picture of Initiative">
-      <div class="card-body">
-        <h5 class="card-title">Example Initiative</h5>
-        <p class="card-text">A quick introduction about the initiative here.</p>
-        <a class="btn btn-primary">Learn more!</a>
-      </div>
-    </div>
-  </div>
-    <div class="col-3">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Picture of Initiative">
-        <div class="card-body">
-          <h5 class="card-title">Example Initiative</h5>
-          <p class="card-text">A quick introduction about the initiative here.</p>
-          <a class="btn btn-primary">Learn more!</a>
-        </div>
-      </div>
-    </div>
-    <div class="col-3">
-      <div class="card">
-        <img class="card-img-top" src="..." alt="Picture of Initiative">
-        <div class="card-body">
-          <h5 class="card-title">Example Initiative</h5>
+          <h5 class="card-title">{{module.name}}</h5>
           <p class="card-text">A quick introduction about the initiative here.</p>
           <a class="btn btn-primary">Learn more!</a>
         </div>

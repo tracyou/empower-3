@@ -31,6 +31,7 @@ public class BackendApplication implements CommandLineRunner {
   public void run(String... args) throws Exception {
     System.out.println("Running testdata");
     this.createInitialUsers();
+    this.createModules();
   }
 
   private void createInitialUsers() {
@@ -44,16 +45,18 @@ public class BackendApplication implements CommandLineRunner {
       user = this.userRepository.save(user);
       System.out.println("wooooowwww");
     }
+  }
 
+  private void createModules() {
     List<TrainingModule> modules = this.moduleRepository.findAll();
 
     if (modules.size() > 0) return;
     System.out.println("Configuring some initial initiatives data");
 
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 9; i++) {
       TrainingModule module = TrainingModule.createModules();
       module = this.moduleRepository.save(module);
-      System.out.println("wohooooo");
+      System.out.println("heeeeyy");
     }
   }
 }

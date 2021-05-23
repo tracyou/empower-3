@@ -1,6 +1,5 @@
 package nl.hva.fdmci.backend.repositories;
 
-import nl.hva.fdmci.backend.models.Initiative;
 import nl.hva.fdmci.backend.models.TrainingModule;
 import org.springframework.stereotype.Repository;
 
@@ -23,5 +22,13 @@ public class TrainingModuleRepository {
 
   public TrainingModule save(TrainingModule module) {
     return entityManager.merge(module);
+  }
+
+  public List<TrainingModule> findByQuery(String jpqlName, Object... object) {
+    TypedQuery<TrainingModule> query = entityManager.createNamedQuery(jpqlName, TrainingModule.class);
+    for (int i = 0; i < object.length; i++) {
+      query.setParameter(i + 1, object[i]);
+    }
+    return query.getResultList();
   }
 }
