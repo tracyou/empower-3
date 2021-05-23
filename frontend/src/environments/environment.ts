@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  apiBaseUrl: 'http://localhost:8080/rest',
+  apiBaseUrl: 'http://localhost:8080',
   staging: false
 };
 
