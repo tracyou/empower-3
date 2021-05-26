@@ -1,11 +1,14 @@
 package nl.hva.fdmci.backend.repositories;
 
 import nl.hva.fdmci.backend.models.User;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class UserRepository {
+
 
   private final List<User> userList;
   int id = 1;
