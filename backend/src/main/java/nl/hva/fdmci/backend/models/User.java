@@ -3,7 +3,7 @@ package nl.hva.fdmci.backend.models;
 import javax.persistence.*;
 
 @Entity(name = "User")
-@Table(name = "User")
+@Table(name = "user")
 public class User {
   @Id
 //  @SequenceGenerator(
