@@ -24,7 +24,7 @@ public class User {
   @Column(name = "Password", columnDefinition = "TEXT")
   private String password;
 
-  @Column(name = "UserType", columnDefinition = "TEXT")
+  @Column(name = "user_type", columnDefinition = "TEXT")
   private String userType;
 
   @Column(name = "Title", columnDefinition = "TEXT")
