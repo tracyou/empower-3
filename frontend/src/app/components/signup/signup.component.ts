@@ -35,14 +35,16 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp(): void {
-    this.isUsernameUnique();
-    if (this.isUnique) {
+    // this.isUsernameUnique();
+    // if (this.isUnique) {
       if (this.isFilled()) {
         if (!this.pattern.test(this.password)) {
+          console.log(this.password);
           alert('Password should be validated');
         } else {
           if (this.confirmPassword === this.password) {
             const newUser = this.newUser();
+            console.log(newUser);
             this.userService.save(newUser);
             this.navigate();
           } else {
@@ -53,9 +55,9 @@ export class SignupComponent implements OnInit {
         console.log('All fields must be filled');
         alert('All fields must be filled');
       }
-    } else {
-      alert('This username is already taken, try another one.');
-    }
+    // } else {
+    //   alert('This username is already taken, try another one.');
+    // }
   }
 
   isFilled(): boolean {
