@@ -2,7 +2,7 @@ package nl.hva.fdmci.backend.rest;
 
 import nl.hva.fdmci.backend.PreConditionFailed;
 import nl.hva.fdmci.backend.models.User;
-import nl.hva.fdmci.backend.repositories.UserRepository;
+import nl.hva.fdmci.backend.repositories.UserRepositorie;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,7 +16,13 @@ import java.util.List;
 @RestController
 public class UserController {
 
-  private final UserRepository repository= new UserRepository();
+  private final UserRepositorie repository;
+
+  public UserController(UserRepositorie repository) {
+    this.repository = repository;
+  }
+
+//  private final UserRepository repository = new UserRepository();
 
   @GetMapping("users")
   public List<User> getAllUsers() {

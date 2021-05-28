@@ -18,7 +18,7 @@ public class User {
   @Column(name = "ID", updatable = false)
   private int id;
 
-  @Column(name = "Username", columnDefinition = "TEXT")
+  @Column(name = "username", columnDefinition = "TEXT")
   private String username;
 
   @Column(name = "Password", columnDefinition = "TEXT")
