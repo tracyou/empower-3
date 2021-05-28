@@ -2,31 +2,38 @@ package nl.hva.fdmci.backend.models;
 
 import javax.persistence.*;
 
-@Entity
-@SequenceGenerator(name = "user_id", initialValue = 1001)
-@NamedQuery(name = "find_all_users", query = "select u from User u")
+@Entity(name = "User")
+@Table(name = "user")
 public class User {
-
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id")
+//  @SequenceGenerator(
+//    name = "User",
+//    sequenceName = "User",
+//    allocationSize = 1
+//  )
+//  @GeneratedValue(strategy = GenerationType.SEQUENCE,
+//    generator = "User"
+//  )
+
+  @Column(name = "ID", updatable = false)
   private int id;
 
+  @Column(name = "username", columnDefinition = "TEXT")
   private String username;
+
+  @Column(name = "Password", columnDefinition = "TEXT")
   private String password;
 
-  @Enumerated(EnumType.STRING)
-  private Type userType;
+  @Column(name = "user_type", columnDefinition = "TEXT")
+  private String userType;
 
+  @Column(name = "Title", columnDefinition = "TEXT")
   private String title;
+
+  @Column(name = "Description", columnDefinition = "TEXT")
   private String description;
 
-  public enum Type{
-    Initiative,
-    Authority,
-  }
-
-  public User(int id, String username, String password, Type userType, String title, String description) {
-    this.id = id;
+  public User(String username, String password, String userType, String title, String description) {
     this.username = username;
     this.password = password;
     this.userType = userType;
@@ -47,56 +54,7 @@ public class User {
   }
 
   public static User createRandomUser(int id) {
-    return new User(id, User.getRandomUsername(), User.getRandomPassword(), User.getRandomType(),
-      User.getRandomTitle(), User.getRandomDescription());
-  }
-
-  public static User createInitialUser() {
-    return new User(User.getRandomUsername(), User.getRandomPassword(), User.getRandomType(),
-      User.getRandomTitle(), User.getRandomDescription());
-  }
-
-  private static String getRandomUsername(){
-    String[] titleArray = new String[3];
-    titleArray[0] = "energy101";
-    titleArray[1] = "green_energy";
-    titleArray[2] = "empower3";
-    int random = (int) Math.floor(Math.random() * titleArray.length);
-    return titleArray[random];
-  }
-
-  private static String getRandomPassword(){
-    String[] titleArray = new String[3];
-    titleArray[0] = "hi123";
-    titleArray[1] = "Winner10";
-    titleArray[2] = "heythere";
-    int random = (int) Math.floor(Math.random() * titleArray.length);
-    return titleArray[random];
-  }
-
-  private static Type getRandomType(){
-    Type[] types;
-    types = Type.values();
-    int random = (int) Math.floor(Math.random() * types.length);
-    return types[random];
-  }
-
-  private static String getRandomTitle(){
-    String[] titleArray = new String[3];
-    titleArray[0] = "Green energy";
-    titleArray[1] = "Empower";
-    titleArray[2] = "Energy active";
-    int random = (int) Math.floor(Math.random() * titleArray.length);
-    return titleArray[random];
-  }
-
-  private static String getRandomDescription(){
-    String[] descriptionArray = new String[3];
-    descriptionArray[0] = "we're very nice";
-    descriptionArray[1] = "we're extremely cool";
-    descriptionArray[2] = "we're active";
-    int random = (int) Math.floor(Math.random() * descriptionArray.length);
-    return descriptionArray[random];
+    return new User( "loser101", "hi123", "local initiative", "nice initiative", "we're very nice");
   }
 
   public int getId() {
