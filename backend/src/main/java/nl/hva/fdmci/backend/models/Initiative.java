@@ -60,7 +60,7 @@ public class Initiative {
   @Column(name = "input_email", columnDefinition = "TEXT")
   private String inputEmail;
 
-  @Column(name = "input_phone")
+  @Column(name = "input_phone", columnDefinition = "TEXT")
   private int inputPhone;
 
   @Column(name = "input_website", columnDefinition = "TEXT")
