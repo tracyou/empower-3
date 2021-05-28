@@ -1,3 +1,9 @@
 .col-3{
   padding-top : 15px;
 }
+
+#filterButton {
+  background-color: #009a67;
+  margin-top: 30px;
+  width: 100px;
+}

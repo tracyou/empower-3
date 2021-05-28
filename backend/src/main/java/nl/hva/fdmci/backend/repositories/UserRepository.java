@@ -21,26 +21,4 @@ public class UserRepository {
   private void createRandomUser(int id) {
     this.userList.add(User.createRandomUser(id));
   }
-
-  public List<User> findAll() {
-    return this.userList;
-  }
-
-  public User findById(int id) {
-    for (User user : userList) {
-      if (user.getId() == id) {
-        return user;
-      }
-    }
-    return null;
-  }
-
-  public User save(User user) {
-    if (user.getId() == 0) {
-      user.setId(id);
-      id++;
-      this.userList.add(user);
-    }
-    return user;
-  }
 }
