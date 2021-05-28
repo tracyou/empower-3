@@ -41,6 +41,14 @@ public class User {
     this.description = description;
   }
 
+    public User(String username, String password, Type userType, String title, String description) {
+    this.username = username;
+    this.password = password;
+    this.userType = userType;
+    this.title = title;
+    this.description = description;
+  }
+
   public User() {
 
   }
@@ -73,11 +81,11 @@ public class User {
     this.password = password;
   }
 
-  public String getUserType() {
+  public Type getUserType() {
     return userType;
   }
 
-  public void setUserType(String userType) {
+  public void setUserType(Type userType) {
     this.userType = userType;
   }
 
