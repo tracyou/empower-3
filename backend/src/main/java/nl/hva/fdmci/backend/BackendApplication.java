@@ -26,6 +26,25 @@ public class BackendApplication implements CommandLineRunner {
 		SpringApplication.run(BackendApplication.class, args);
 	}
 
+  @Override
+  public void run(String... args) throws Exception {
+    System.out.println("Running testdata");
+    this.createModules();
+  }
+
+  private void createModules() {
+    List<TrainingModule> modules = this.moduleRepository.findAll();
+
+    if (modules.size() > 0) return;
+    System.out.println("Configuring some initial initiatives data");
+
+    for (int i = 0; i < 9; i++) {
+      TrainingModule module = TrainingModule.createModules();
+      module = this.moduleRepository.save(module);
+      System.out.println("heeeeyy");
+    }
+  }
+
 //	@Bean
 //	CommandLineRunner commandLineRunner(UserRepositorie userRepository){
 //	  return args -> {
