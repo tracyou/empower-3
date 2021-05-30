@@ -1,15 +1,39 @@
 package nl.hva.fdmci.backend.models;
 
+import javax.persistence.*;
+
+@Entity(name = "User")
+@Table(name = "user")
 public class User {
+  @Id
+//  @SequenceGenerator(
+//    name = "User",
+//    sequenceName = "User",
+//    allocationSize = 1
+//  )
+//  @GeneratedValue(strategy = GenerationType.SEQUENCE,
+//    generator = "User"
+//  )
+
+  @Column(name = "ID", updatable = false)
   private int id;
+
+  @Column(name = "username", columnDefinition = "TEXT")
   private String username;
+
+  @Column(name = "Password", columnDefinition = "TEXT")
   private String password;
+
+  @Column(name = "user_type", columnDefinition = "TEXT")
   private String userType;
+
+  @Column(name = "Title", columnDefinition = "TEXT")
   private String title;
+
+  @Column(name = "Description", columnDefinition = "TEXT")
   private String description;
 
-  public User(int id, String username, String password, String userType, String title, String description) {
-    this.id = id;
+  public User(String username, String password, String userType, String title, String description) {
     this.username = username;
     this.password = password;
     this.userType = userType;
@@ -22,7 +46,7 @@ public class User {
   }
 
   public static User createRandomUser(int id) {
-    return new User(id, "loser101", "hi123", "local initiative", "nice initiative", "we're very nice");
+    return new User( "loser101", "hi123", "local initiative", "nice initiative", "we're very nice");
   }
 
   public int getId() {
@@ -53,7 +77,7 @@ public class User {
     return userType;
   }
 
-  public void setUserType(String userType) {
+  public void setUserType(String  userType) {
     this.userType = userType;
   }
 

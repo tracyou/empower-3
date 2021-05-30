@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from '../../services/user.service';
 import {User} from '../../models/user';
 import {Router} from '@angular/router';
+// import {UserRepositorie} from '../../../../../backend/src/main/java/nl/hva/fdmci';
 
 @Component({
   selector: 'app-signup',
@@ -9,6 +10,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+
+  constructor(private userService: UserService, private router: Router) {
+  }
+
   @Input() username;
   @Input() password;
   @Input() confirmPassword;
@@ -17,10 +22,8 @@ export class SignupComponent implements OnInit {
   @Input() description;
 
   usersList: User[];
-  isUnique: boolean;
-
-  constructor(private userService: UserService, private router: Router) {
-  }
+  isUnique = false;
+  pattern: RegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$');
 
   ngOnInit(): void {
     this.usersList = this.userService.users;
@@ -32,23 +35,29 @@ export class SignupComponent implements OnInit {
   }
 
   onSignUp(): void {
-    this.isUsernameUnique();
-    if (this.isUnique === true) {
+    // this.isUsernameUnique();
+    // if (this.isUnique) {
       if (this.isFilled()) {
-        if (this.confirmPassword !== this.password) {
-          alert('Passwords do not match');
+        if (!this.pattern.test(this.password)) {
+          console.log(this.password);
+          alert('Password should be validated');
         } else {
-          const newUser = this.newUser();
-          this.userService.save(newUser);
-          this.navigate();
+          if (this.confirmPassword === this.password) {
+            const newUser = this.newUser();
+            console.log(newUser);
+            this.userService.save(newUser);
+            this.navigate();
+          } else {
+            alert('Passwords do not match');
+          }
         }
       } else {
         console.log('All fields must be filled');
         alert('All fields must be filled');
       }
-    } else {
-      alert('This username is already taken, try another one.');
-    }
+    // } else {
+    //   alert('This username is already taken, try another one.');
+    // }
   }
 
   isFilled(): boolean {
@@ -57,7 +66,14 @@ export class SignupComponent implements OnInit {
 
   isUsernameUnique(): void {
     for (const user of this.usersList) {
-      this.isUnique = user.username !== this.username;
+      if (user.username === this.username) {
+        console.log('username exists');
+        this.isUnique = false;
+        break;
+      } else {
+        console.log('username does not exist');
+        this.isUnique = true;
+      }
     }
   }
 

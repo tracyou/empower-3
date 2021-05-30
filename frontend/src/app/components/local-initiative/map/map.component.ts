@@ -108,8 +108,19 @@ export class MapComponent implements OnInit {
   }
 
   onClickSubmit(): void {
-    const newInitiative = this.newInitiative();
-    this.initiativeService.save(newInitiative);
-    this.router.navigate(['/profileInitiative']);
+    if (this.isFilled()){
+      const newInitiative = this.newInitiative();
+      this.initiativeService.save(newInitiative);
+      this.router.navigate(['/profileInitiative']);
+    } else {
+      alert('All fields must be filled');
+    }
+  }
+
+  isFilled(): boolean {
+    return this.city && this.state && this.zip && this.name && this.date && this.selectTheme && (this.goalReduce || this.goalImprove ||
+      this.goalGreen || this.goalCreate || this.goalFootprint) && (this.gridRadios || this.gridRadios2 || this.gridRadios3 ||
+      this.gridRadios4) && this.collaboration && (this.gridExpertise1 || this.gridExpertise2 || this.gridExpertise3) && this.inputEmail &&
+      this.inputWebsite && this.inputPhone;
   }
 }
