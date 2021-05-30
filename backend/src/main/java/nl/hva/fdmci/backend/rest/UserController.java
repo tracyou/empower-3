@@ -3,7 +3,7 @@ package nl.hva.fdmci.backend.rest;
 import nl.hva.fdmci.backend.errors.PreConditionFailed;
 import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
-import nl.hva.fdmci.backend.repositories.UserRepositorie;
+import nl.hva.fdmci.backend.repositories.UserRepositoryInterface;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -15,9 +15,9 @@ import java.util.Optional;
 @RestController
 public class UserController {
 
-  private final UserRepositorie repository;
+  private final UserRepositoryInterface repository;
 
-  public UserController(UserRepositorie repository) {
+  public UserController(UserRepositoryInterface repository) {
     this.repository = repository;
   }
 

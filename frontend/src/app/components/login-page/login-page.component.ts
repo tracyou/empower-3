@@ -5,10 +5,10 @@ import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inlogpagina',
-  templateUrl: './inlogpagina.component.html',
-  styleUrls: ['./inlogpagina.component.css']
+  templateUrl: './login-page.component.html',
+  styleUrls: ['./login-page.component.css']
 })
-export class InlogpaginaComponent implements OnInit {
+export class LoginPageComponent implements OnInit {
   @Input() username;
   @Input() password;
 

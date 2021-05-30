@@ -46,7 +46,7 @@ public class BackendApplication implements CommandLineRunner {
   }
 
 //	@Bean
-//	CommandLineRunner commandLineRunner(UserRepositorie userRepository){
+//	CommandLineRunner commandLineRunner(UserRepositoryInterface userRepository){
 //	  return args -> {
 //      User tracy = new User("Tracy", "Tracy123", "something", "title", "description");
 //      userRepository.save(tracy);
