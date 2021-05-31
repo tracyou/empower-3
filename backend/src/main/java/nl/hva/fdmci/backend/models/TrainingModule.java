@@ -3,7 +3,8 @@ package nl.hva.fdmci.backend.models;
 
 import javax.persistence.*;
 
-@Entity
+@Entity(name = "TrainingModule")
+@Table(name = "TrainingModule")
 @NamedQuery(name = "find_all_modules", query = "select t from TrainingModule t")
 @NamedQuery(name="find_by_tool", query = "select t from TrainingModule t where t.tool= ?1")
 @NamedQuery(name="find_by_theme", query = "select t from TrainingModule t where t.theme= ?1")
@@ -12,20 +13,25 @@ import javax.persistence.*;
 public class TrainingModule {
 
   @Id
-  @GeneratedValue
+  @Column(name = "id", updatable = false)
   private int id;
 
+  @Column(name = "name", columnDefinition = "TEXT")
   private String name;
 
+  @Column(name = "tool", columnDefinition = "TEXT")
   @Enumerated(EnumType.STRING)
   private Tool tool;
 
+  @Column(name = "theme", columnDefinition = "TEXT")
   @Enumerated(EnumType.STRING)
   private Theme theme;
 
+  @Column(name = "location", columnDefinition = "TEXT")
   @Enumerated(EnumType.STRING)
   private Location location;
 
+  @Column(name = "language", columnDefinition = "TEXT")
   @Enumerated(EnumType.STRING)
   private Language language;
 
@@ -75,10 +81,10 @@ public class TrainingModule {
 
   public static TrainingModule createModules() {
     return new TrainingModule(TrainingModule.getRandomName(),
-                              TrainingModule.getRandomTool(),
-                              TrainingModule.getRandomTheme(),
-                              TrainingModule.getRandomLocation(),
-                              TrainingModule.getRandomLanguage());
+      TrainingModule.getRandomTool(),
+      TrainingModule.getRandomTheme(),
+      TrainingModule.getRandomLocation(),
+      TrainingModule.getRandomLanguage());
   }
 
   private static String getRandomName(){
