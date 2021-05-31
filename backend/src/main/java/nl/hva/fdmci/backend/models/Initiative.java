@@ -1,33 +1,84 @@
 package nl.hva.fdmci.backend.models;
 
-import java.util.Date;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity(name = "Initiative")
+@Table(name = "initiative")
 public class Initiative {
+  @Id
+  @Column(name = "ID", updatable = false)
   private int id;
+
+  @Column(name = "City", columnDefinition = "TEXT")
   private String city;
+
+  @Column(name = "collaboration", columnDefinition = "TEXT")
   private String collaboration;
-  private Date date;
+
+  @Column(name = "date", columnDefinition = "TEXT")
+  private String date;
+
+  @Column(name = "goal_create", columnDefinition = "TEXT")
   private String goalCreate;
+
+  @Column(name = "gaol_footprint", columnDefinition = "TEXT")
   private String gaolFootprint;
+
+  @Column(name = "gaol_green", columnDefinition = "TEXT")
   private String gaolGreen;
+
+  @Column(name = "gaol_improve", columnDefinition = "TEXT")
   private String gaolImprove;
+
+  @Column(name = "gaol_reduce", columnDefinition = "TEXT")
   private String gaolReduce;
+
+  @Column(name = "grid_expertise1", columnDefinition = "TEXT")
   private String gridExpertise1;
+
+  @Column(name = "grid_expertise2", columnDefinition = "TEXT")
   private String gridExpertise2;
+
+  @Column(name = "grid_expertise3", columnDefinition = "TEXT")
   private String gridExpertise3;
+
+  @Column(name = "grid_radios", columnDefinition = "TEXT")
   private String gridRadios;
+
+  @Column(name = "grid_radios2", columnDefinition = "TEXT")
   private String gridRadios2;
+
+  @Column(name = "grid_radios3", columnDefinition = "TEXT")
   private String gridRadios3;
+
+  @Column(name = "grid_radios4", columnDefinition = "TEXT")
   private String gridRadios4;
+
+  @Column(name = "input_email", columnDefinition = "TEXT")
   private String inputEmail;
+
+  @Column(name = "input_phone", columnDefinition = "TEXT")
   private int inputPhone;
+
+  @Column(name = "input_website", columnDefinition = "TEXT")
   private String inputWebsite;
+
+  @Column(name = "name", columnDefinition = "TEXT")
   private String name;
+
+  @Column(name = "selected_theme", columnDefinition = "TEXT")
   private String selectedTheme;
+
+  @Column(name = "state", columnDefinition = "TEXT")
   private String state;
+
+  @Column(name = "zip", columnDefinition = "TEXT")
   private String zip;
 
-  public Initiative(int id, String city, String collaboration, Date date, String goalCreate, String gaolFootprint,
+  public Initiative(int id, String city, String collaboration, String date, String goalCreate, String gaolFootprint,
                     String gaolGreen, String gaolImprove, String gaolReduce, String gridExpertise1,
                     String gridExpertise2, String gridExpertise3, String gridRadios, String gridRadios2,
                     String gridRadios3, String gridRadios4, String inputEmail, int inputPhone, String inputWebsite,
@@ -68,6 +119,7 @@ public class Initiative {
       null, null, null);
   }
 
+  @Id
   public int getId() {
     return id;
   }
@@ -92,11 +144,11 @@ public class Initiative {
     this.collaboration = collaboration;
   }
 
-  public Date getDate() {
+  public String getDate() {
     return date;
   }
 
-  public void setDate(Date date) {
+  public void setDate(String date) {
     this.date = date;
   }
 

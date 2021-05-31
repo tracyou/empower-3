@@ -1,7 +1,7 @@
 export class Initiative {
   city: string;
   collaboration: string;
-  date: Date;
+  date: string;
   gaolCreate: string;
   gaolFootprint: string;
   gaolGreen: string;
@@ -15,7 +15,7 @@ export class Initiative {
   gridRadios3: string;
   gridRadios4: string;
   inputEmail: string;
-  inputPhone: number;
+  inputPhone: string;
   inputWebsite: string;
   name: string;
   selectedTheme: string;
@@ -23,9 +23,9 @@ export class Initiative {
   zip: string;
 
 
-  constructor(city: string, collaboration: string, date: Date, gaolCreate: string, gaolFootprint: string, gaolGreen: string,
+  constructor(city: string, collaboration: string, date: string, gaolCreate: string, gaolFootprint: string, gaolGreen: string,
               gaolImprove: string, gaolReduce: string, gridExpertise1: string, gridExpertise2: string, gridExpertise3: string,
-              gridRadios: string, gridRadios2: string, gridRadios3: string, gridRadios4: string, inputEmail: string, inputPhone: number,
+              gridRadios: string, gridRadios2: string, gridRadios3: string, gridRadios4: string, inputEmail: string, inputPhone: string,
               inputWebsite: string, name: string, selectedTheme: string, state: string, zip: string) {
     this.city = city;
     this.collaboration = collaboration;

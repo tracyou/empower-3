@@ -17,11 +17,11 @@ public class InitiativeRepository {
   }
 
   public Initiative save(Initiative initiative) {
-    if (initiative.getId() == 0) {
-      initiative.setId(id);
-      id++;
+//    if (initiative.getId() == 0) {
+//      initiative.setId(id);
+//      id++;
       this.initiativeList.add(initiative);
-    }
+//    }
     return initiative;
   }
 

@@ -3,29 +3,43 @@ package nl.hva.fdmci.backend.rest;
 import nl.hva.fdmci.backend.errors.PreConditionFailed;
 import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
-import nl.hva.fdmci.backend.repositories.UserRepositoryJpa;
-import org.springframework.beans.factory.annotation.Autowired;
+import nl.hva.fdmci.backend.repositories.UserRepositoryInterface;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class UserController {
 
-  @Autowired
-  private final UserRepositoryJpa repository= new UserRepositoryJpa();
+  private final UserRepositoryInterface repository;
+
+  public UserController(UserRepositoryInterface repository) {
+    this.repository = repository;
+  }
+
+//  private final UserRepository repository = new UserRepository();
 
   @GetMapping("users")
   public List<User> getAllUsers() {
     return repository.findAll();
   }
 
-  @GetMapping("users/{id}")
-  public User getUserById(@PathVariable int id) {
-    User selectedUser = repository.findById(id);
+//  @GetMapping("users/{id}")
+//  public User getUserById(@PathVariable int id) {
+//    Optional<User> selectedUser = repository.findById(id);
+//    if (selectedUser == null) {
+//      throw new ResourceNotFound("Id doesn't exist");
+//    }
+//    return selectedUser;
+//  }
+
+   @GetMapping("users/{id}")
+  public Optional<User> getUserById(@PathVariable int id) {
+    Optional<User> selectedUser = repository.findById(id);
     if (selectedUser == null) {
       throw new ResourceNotFound("Id doesn't exist");
     }
@@ -50,14 +64,14 @@ public class UserController {
     return ResponseEntity.created(location).body(savedUser);
   }
 
-  @DeleteMapping("users/{id}")
-  public boolean delete(@PathVariable int id) throws ResourceNotFound {
-    User selectedUser = repository.findById(id);
-
-    if (selectedUser == null) {
-      throw new ResourceNotFound("Id:" + id + "doesn't exist");
-    }
-
-    return repository.deletedById(selectedUser.getId());
-  }
+//  @DeleteMapping("users/{id}")
+//  public boolean delete(@PathVariable int id) throws ResourceNotFound {
+//    Optional<User> selectedUser = repository.findById(id);
+//
+//    if (selectedUser == null) {
+//      throw new ResourceNotFound("Id:" + id + "doesn't exist");
+//    }
+//
+//    return repository.deletedById(selectedUser.getId());
+//  }
 }
