@@ -50,14 +50,4 @@ public class UserController {
     return ResponseEntity.created(location).body(savedUser);
   }
 
-//  @DeleteMapping("users/{id}")
-//  public boolean delete(@PathVariable int id) throws ResourceNotFound {
-//    User selectedUser = repository.findById(id);
-//
-//    if (selectedUser == null) {
-//      throw new ResourceNotFound("Id:" + id + "doesn't exist");
-//    }
-//
-//    return repository.deletedById(selectedUser.getId());
-//  }
 }
