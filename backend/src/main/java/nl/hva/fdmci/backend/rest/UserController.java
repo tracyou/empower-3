@@ -1,7 +1,6 @@
 package nl.hva.fdmci.backend.rest;
 
 import nl.hva.fdmci.backend.errors.PreConditionFailed;
-import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
 import nl.hva.fdmci.backend.repositories.UserRepositoryInterface;
 import org.springframework.http.ResponseEntity;
@@ -30,11 +29,7 @@ public class UserController {
 
   @GetMapping("users/{id}")
   public Optional<User> getUserById(@PathVariable int id) {
-    Optional<User> selectedUser = repository.findById(id);
-    if (selectedUser == null) {
-      throw new ResourceNotFound("Id doesn't exist");
-    }
-    return selectedUser;
+    return repository.findById(id);
   }
 
   @PostMapping("users")

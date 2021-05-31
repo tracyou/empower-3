@@ -6,6 +6,11 @@ export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:8080'
 };
+//
+// export const environment = {
+//   apiUrl: 'http://localhost:8080/rest',
+//   environmentName: 'development',
+// };
 
 /*
  * For easier debugging in development mode, you can import the following file
