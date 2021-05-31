@@ -21,29 +21,14 @@ public class UserController {
     this.repository = repository;
   }
 
-//  private final UserRepository repository = new UserRepository();
-
   @GetMapping("users")
   public List<User> getAllUsers() {
     return repository.findAll();
   }
 
-//  @GetMapping("users/{id}")
-//  public User getUserById(@PathVariable int id) {
-//    Optional<User> selectedUser = repository.findById(id);
-//    if (selectedUser == null) {
-//      throw new ResourceNotFound("Id doesn't exist");
-//    }
-//    return selectedUser;
-//  }
-
-   @GetMapping("users/{id}")
+  @GetMapping("users/{id}")
   public Optional<User> getUserById(@PathVariable int id) {
-    Optional<User> selectedUser = repository.findById(id);
-    if (selectedUser == null) {
-      throw new ResourceNotFound("Id doesn't exist");
-    }
-    return selectedUser;
+    return repository.findById(id);
   }
 
   @PostMapping("users")
@@ -63,15 +48,4 @@ public class UserController {
 
     return ResponseEntity.created(location).body(savedUser);
   }
-
-//  @DeleteMapping("users/{id}")
-//  public boolean delete(@PathVariable int id) throws ResourceNotFound {
-//    Optional<User> selectedUser = repository.findById(id);
-//
-//    if (selectedUser == null) {
-//      throw new ResourceNotFound("Id:" + id + "doesn't exist");
-//    }
-//
-//    return repository.deletedById(selectedUser.getId());
-//  }
 }

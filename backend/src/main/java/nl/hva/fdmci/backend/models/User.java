@@ -6,15 +6,6 @@ import javax.persistence.*;
 @Table(name = "user")
 public class User {
   @Id
-//  @SequenceGenerator(
-//    name = "User",
-//    sequenceName = "User",
-//    allocationSize = 1
-//  )
-//  @GeneratedValue(strategy = GenerationType.SEQUENCE,
-//    generator = "User"
-//  )
-
   @Column(name = "ID", updatable = false)
   private int id;
 

@@ -13,7 +13,6 @@ import java.util.List;
 
 @RestController
 public class InitiativeController {
-//  private final InitiativeRepository initiativeRepository = new InitiativeRepository(new ArrayList<>());
 
   private final InitiativeRepositoryInterface initiativeRepository;
 
