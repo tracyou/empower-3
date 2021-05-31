@@ -12,33 +12,13 @@ public class UserRepository {
 
   public UserRepository() {
     this.userList = new ArrayList<>();
-    this.createRandomUser(id);
-    id++;
+    for (int i = id; i < 4; i++) {
+      this.createRandomUser(id);
+      id++;
+    }
   }
 
   private void createRandomUser(int id) {
     this.userList.add(User.createRandomUser(id));
-  }
-
-  public List<User> findAll() {
-    return this.userList;
-  }
-
-  public User findById(int id) {
-    for (User user : userList) {
-      if (user.getId() == id) {
-        return user;
-      }
-    }
-    return null;
-  }
-
-  public User save(User user) {
-    if (user.getId() == 0) {
-      user.setId(id);
-      id++;
-      this.userList.add(user);
-    }
-    return user;
   }
 }

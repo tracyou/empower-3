@@ -6,12 +6,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 public class InitiativeController {
-  private final InitiativeRepository initiativeRepository = new InitiativeRepository(new ArrayList<>());
+  private InitiativeRepository initiativeRepository;
 
   @GetMapping("initiative")
   public ResponseEntity<List<Initiative>> getAllInitiatative(){

@@ -1,16 +1,12 @@
 package nl.hva.fdmci.backend.rest;
 
-import nl.hva.fdmci.backend.PreConditionFailed;
+import nl.hva.fdmci.backend.errors.PreConditionFailed;
+import nl.hva.fdmci.backend.errors.ResourceNotFound;
 import nl.hva.fdmci.backend.models.User;
-import nl.hva.fdmci.backend.repositories.UserRepository;
-import org.springframework.http.HttpStatus;
+import nl.hva.fdmci.backend.repositories.UserRepositoryJpa;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
@@ -19,11 +15,21 @@ import java.util.List;
 @RestController
 public class UserController {
 
-  private final UserRepository repository= new UserRepository();
+  @Autowired
+  private final UserRepositoryJpa repository= new UserRepositoryJpa();
 
   @GetMapping("users")
   public List<User> getAllUsers() {
     return repository.findAll();
+  }
+
+  @GetMapping("users/{id}")
+  public User getUserById(@PathVariable int id) {
+    User selectedUser = repository.findById(id);
+    if (selectedUser == null) {
+      throw new ResourceNotFound("Id doesn't exist");
+    }
+    return selectedUser;
   }
 
   @PostMapping("users")
@@ -42,5 +48,16 @@ public class UserController {
       .buildAndExpand(savedUser.getId()).toUri();
 
     return ResponseEntity.created(location).body(savedUser);
+  }
+
+  @DeleteMapping("users/{id}")
+  public boolean delete(@PathVariable int id) throws ResourceNotFound {
+    User selectedUser = repository.findById(id);
+
+    if (selectedUser == null) {
+      throw new ResourceNotFound("Id:" + id + "doesn't exist");
+    }
+
+    return repository.deletedById(selectedUser.getId());
   }
 }
