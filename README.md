@@ -14,11 +14,11 @@ then click on the play button next to the main method and run 'BackendApplicatio
 ## Frontend
 To run the frontend of this application, you need to install all necessary dependencies. This can be done by a simple command. It may take a while to complete.
 Node.js must be installed to do this. Here is how you can install node.js: https://www.npmjs.com/get-npm
-`npm install`
+```npm install```
 
 Now you should build your application using this code
-`ng serve`
+~~~ng serve~~~
 
 **Only if** you want to run the application in a staging or production environment, you need to run these two codes instead of ng serve
-`ng build
-ng start`
+~~~ng build
+ng start~~~
