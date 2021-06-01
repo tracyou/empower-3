@@ -28,3 +28,6 @@ ng serve
 ng build    
 ng start
 ```
+
+## Technical Documentation
+Link: https://docs.google.com/document/d/1BLdlUvZtz5HAo0PzXqHPJvzaXML7UIT0rg3JXYUoznc/edit?usp=sharing
