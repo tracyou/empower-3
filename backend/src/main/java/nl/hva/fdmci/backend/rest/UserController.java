@@ -20,8 +20,6 @@ public class UserController {
     this.repository = repository;
   }
 
-//  private final UserRepository repository = new UserRepository();
-
   @GetMapping("users")
   public List<User> getAllUsers() {
     return repository.findAll();
