@@ -61,7 +61,7 @@ public class Initiative {
   private String inputEmail;
 
   @Column(name = "input_phone")
-  private int inputPhone;
+  private String inputPhone;
 
   @Column(name = "input_website", columnDefinition = "TEXT")
   private String inputWebsite;
@@ -81,7 +81,7 @@ public class Initiative {
   public Initiative(int id, String city, String collaboration, String date, String goalCreate, String gaolFootprint,
                     String gaolGreen, String gaolImprove, String gaolReduce, String gridExpertise1,
                     String gridExpertise2, String gridExpertise3, String gridRadios, String gridRadios2,
-                    String gridRadios3, String gridRadios4, String inputEmail, int inputPhone, String inputWebsite,
+                    String gridRadios3, String gridRadios4, String inputEmail, String inputPhone, String inputWebsite,
                     String name, String selectedTheme, String state, String zip) {
     this.id = id;
     this.city = city;
@@ -115,7 +115,7 @@ public class Initiative {
   public static Initiative createRandom(int id){
     return new Initiative(id, "city", null, null, null, null, null,
       null, null, null, null, null, null,
-      null, null, null, null, 0, null, null,
+      null, null, null, null, null, null, null,
       null, null, null);
   }
 
@@ -256,11 +256,11 @@ public class Initiative {
     this.inputEmail = inputEmail;
   }
 
-  public int getInputPhone() {
+  public String getInputPhone() {
     return inputPhone;
   }
 
-  public void setInputPhone(int inputPhone) {
+  public void setInputPhone(String inputPhone) {
     this.inputPhone = inputPhone;
   }
 
