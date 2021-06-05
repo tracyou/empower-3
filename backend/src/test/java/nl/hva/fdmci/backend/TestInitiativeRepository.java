@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -51,4 +52,33 @@ public class TestInitiativeRepository {
     assertEquals("[]", repositoryInterface.findAll().toString());
   }
 
+  @Test
+  void attemptToPostIntoDatabase() {
+    Initiative initiative = new Initiative();
+    initiative.setCity("Amsterdam");
+    initiative.setCollaboration("Getting Technical Support");
+    initiative.setDate("29-01-2012");
+    initiative.setGoalCreate("not selected");
+    initiative.setGaolFootprint("selected");
+    initiative.setGaolGreen("selected");
+    initiative.setGaolImprove("not selected");
+    initiative.setGaolReduce("selected");
+    initiative.setGridExpertise1("example 1");
+    initiative.setGridExpertise2("example 2");
+    initiative.setGridExpertise3("example 3");
+    initiative.setGridRadios("Radio 1");
+    initiative.setGridRadios2("Radio 2");
+    initiative.setGridRadios3("Radio 3");
+    initiative.setGridRadios4("Radio 4");
+    initiative.setInputEmail("tracy@gmail.com");
+    initiative.setInputPhone("0612345678");
+    initiative.setInputWebsite("tracy.nl");
+    initiative.setName("Tracy");
+    initiative.setSelectedTheme("selected theme");
+    initiative.setState("noord-holland");
+    initiative.setZip("random zip");
+
+    controller.addInitiatative(initiative);
+//    assertEquals();
+  }
 }
