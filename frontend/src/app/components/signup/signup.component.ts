@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
 
   usersList: User[];
   isUnique = false;
+  filled = false;
   pattern: RegExp = new RegExp('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$');
 
   ngOnInit(): void {
@@ -61,7 +62,13 @@ export class SignupComponent implements OnInit {
   }
 
   isFilled(): boolean {
-    return this.username && this.password && this.confirmPassword && this.userType && this.title && this.description;
+    if (this.username && this.password && this.confirmPassword && this.userType && this.title && this.description) {
+      this.filled = true;
+      return true;
+    } else {
+      this.filled = false;
+      return false;
+    }
   }
 
   isUsernameUnique(): void {
