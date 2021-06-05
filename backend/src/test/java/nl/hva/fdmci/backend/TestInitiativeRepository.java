@@ -27,8 +27,6 @@ public class TestInitiativeRepository {
       "Tracy", "selected theme", "noord-holland", "random zip");
 
     controller.addInitiatative(initiative);
-    assertNotNull(initiative);
-    controller.getAllInitiatative();
-    assertEquals("1", initiative.getId());
+    assertEquals(1, initiative.getId());
   }
 }

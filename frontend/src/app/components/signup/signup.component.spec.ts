@@ -21,9 +21,9 @@ describe('SignupComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 
   // it('if fields are empty, an alert should appear', () => {
   //
