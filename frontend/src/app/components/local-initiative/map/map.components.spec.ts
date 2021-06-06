@@ -47,7 +47,7 @@ describe('MapComponent', () => {
   /**
    * @author Tracy Owusu
    */
-  it('should send you to the local initiative profile page', () => {
+  it('should post a new initiative and send you to the local initiative profile page', () => {
     fixture2 = TestBed.createComponent(ProfileComponent);
 
     const city = fixture.debugElement.nativeElement.querySelector('#city');
