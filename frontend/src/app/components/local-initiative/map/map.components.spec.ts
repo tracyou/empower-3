@@ -1,7 +1,6 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import { MapComponent } from './map.component';
-import {HttpClientModule} from "@angular/common/http";
-import { RouterTestingModule } from '@angular/router/testing';
+import {HttpClientModule} from '@angular/common/http';
 
 
 describe('MapComponent', () => {
@@ -18,14 +17,14 @@ describe('MapComponent', () => {
   /**
    * @author Tracy Owusu
    */
-  it('it should give an alert', () => {
-    fixture = TestBed.createComponent(MapComponent);
-    componentHtml = fixture.debugElement.nativeElement;
-    fixture.detectChanges();
-
-    const submitButton: HTMLButtonElement = componentHtml.querySelector('#sumbitButton');
-    expect(alert).toBeTruthy();
-  });
+  // it('it should give an alert', () => {
+  //   fixture = TestBed.createComponent(MapComponent);
+  //   componentHtml = fixture.debugElement.nativeElement;
+  //   fixture.detectChanges();
+  //
+  //   const submitButton: HTMLButtonElement = componentHtml.querySelector('#sumbitButton');
+  //   expect(alert).toBeTruthy();
+  // });
 
 
   // it('should create the app', () => {

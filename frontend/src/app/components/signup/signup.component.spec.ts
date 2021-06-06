@@ -35,36 +35,45 @@ describe('SignupComponent', () => {
    * @author taherabalhas
    */
   it('should pop alert when fields are empty', () => {
+    spyOn(window, 'alert');
     // arrange (getting UI components)
-    const username = fixture.debugElement.nativeElement.querySelector('#username');
     const button = fixture.debugElement.nativeElement.querySelector('#signupButton');
+    fixture.detectChanges(); // Angular should be updated
 
-    username.value = '';
+    // Act: Performing search
     button.click();
-    fixture.detectChanges();
+    fixture.detectChanges(); // Angular should be updated
 
-    expect(window.alert()).toEqual(alert('All fields must be filled'));
+    expect(window.alert).toHaveBeenCalledWith('All fields must be filled');
   });
 
   /**
    * @author taherabalhas
    */
   it('should pop alert when password is not validated', () => {
+    spyOn(window, 'alert');
+    // arrange (getting UI components)
+    const usernameInput = fixture.debugElement.nativeElement.querySelector('#username');
     const passwordInput = fixture.debugElement.nativeElement.querySelector('#password');
+    const confirmPasswordInput = fixture.debugElement.nativeElement.querySelector('#confirmPassword');
+    const usertTypeInput = fixture.debugElement.nativeElement.querySelector('#userType');
+    const titleInput = fixture.debugElement.nativeElement.querySelector('#title');
+    const descriptionInput = fixture.debugElement.nativeElement.querySelector('#description');
     const button = fixture.debugElement.nativeElement.querySelector('#signupButton');
+    fixture.detectChanges(); // Angular should be updated
 
-    component.filled = true;
+    // Act: Performing search
+    usernameInput.value = 'Tahera2000';
     passwordInput.value = 'user123!';
+    confirmPasswordInput.value = 'user123!';
+    usertTypeInput.value = 'Initiative';
+    titleInput.value = 'Good Energy';
+    descriptionInput.value = 'very nice and cool';
+    component.isFilled();
+    component.pattern.test(passwordInput.value);
     button.click();
-    fixture.detectChanges();
 
-    expect(window.alert()).toEqual(alert('Password should be validated'));
+    // Assert: checking if an alert will pop
+    expect(window.alert).toBeTruthy();
   });
-
-  // /**
-  //  * @author taherabalhas
-  //  */
-  // it('should pop alert if username is not unique', fakeAsync(() => {
-  //
-  // }));
 });
