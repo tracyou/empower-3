@@ -56,44 +56,44 @@ export class MapComponent implements OnInit {
       this.inputPhone);
   }
 
-  loadMap = () => {
-    const map = new window['google'].maps.Map(this.mapElement.nativeElement, {
-      center: {lat: 52.370216, lng: 4.895168},
-      zoom: 8
-    });
-
-    const marker = new window['google'].maps.Marker({
-      position: {lat: 52.370216, lng: 4.895168},
-      map,
-      title: 'Local Initiative',
-      draggable: true,
-      animation: window['google'].maps.Animation.DROP,
-    });
-
-    const contentString = '<div id="content">' +
-      '<div id="siteNotice">' +
-      '</div>' +
-      '<h3 id="thirdHeading" class="thirdHeading">Local Initiative</h3>' +
-      '<div id="bodyContent">' +
-      '<p>Information will be displayed here</p>' +
-      '</div>' +
-      '</div>';
-
-    const infowindow = new window['google'].maps.InfoWindow({
-      content: contentString
-    });
-
-    marker.addListener('click', () => {
-      infowindow.open(map, marker);
-    });
-
-  }
+  // loadMap = () => {
+  //   const map = new window['google'].maps.Map(this.mapElement.nativeElement, {
+  //     center: {lat: 52.370216, lng: 4.895168},
+  //     zoom: 8
+  //   });
+  //
+  //   const marker = new window['google'].maps.Marker({
+  //     position: {lat: 52.370216, lng: 4.895168},
+  //     map,
+  //     title: 'Local Initiative',
+  //     draggable: true,
+  //     animation: window['google'].maps.Animation.DROP,
+  //   });
+  //
+  //   const contentString = '<div id="content">' +
+  //     '<div id="siteNotice">' +
+  //     '</div>' +
+  //     '<h3 id="thirdHeading" class="thirdHeading">Local Initiative</h3>' +
+  //     '<div id="bodyContent">' +
+  //     '<p>Information will be displayed here</p>' +
+  //     '</div>' +
+  //     '</div>';
+  //
+  //   const infowindow = new window['google'].maps.InfoWindow({
+  //     content: contentString
+  //   });
+  //
+  //   marker.addListener('click', () => {
+  //     infowindow.open(map, marker);
+  //   });
+  //
+  // }
 
   // tslint:disable-next-line:typedef
   renderMap() {
 
     window['initMap'] = () => {
-      this.loadMap();
+      // this.loadMap();
     };
     if (!window.document.getElementById('google-map-script')) {
       const s = window.document.createElement('script');
@@ -103,7 +103,7 @@ export class MapComponent implements OnInit {
 
       window.document.body.appendChild(s);
     } else {
-      this.loadMap();
+      // this.loadMap();
     }
   }
 
