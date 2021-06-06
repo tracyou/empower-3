@@ -67,28 +67,28 @@ public class TestInitiativeRepository {
     assertEquals("[]", repositoryInterface.findAll().toString());
   }
 
-//  /**
-//   * @author Tracy Owusu
-//   */
-//  @Test
-//  void attemptToPostInADifferentWay() {
-//
-//
-//    Initiative initiative = new Initiative(4, "Amsterdam", "Getting Technical Support", "29-01-2012",
-//      "not selected", "selected", "selected", "not selected", "selected",
-//      "example 1", "example 2", "example 3", "Radio 1", "Radio 2",
-//      "Radio 3", "Radio 4", "tracy@gmail.com", "0612345678", "tracy.nl",
-//      "Tracy", "selected theme", "noord-holland", "random zip");
-//
-//
-//    ResponseEntity<Initiative> responseEntity = this.restTemplate.postForEntity("/initiative", initiative, Initiative.class);
-//
-//    assertNotNull(responseEntity.getBody());
+  /**
+   * @author Tracy Owusu
+   */
+  @Test
+  void attemptToPostInADifferentWay() {
+
+
+    Initiative initiative = new Initiative(4, "Amsterdam", "Getting Technical Support", "29-01-2012",
+      "not selected", "selected", "selected", "not selected", "selected",
+      "example 1", "example 2", "example 3", "Radio 1", "Radio 2",
+      "Radio 3", "Radio 4", "tracy@gmail.com", "0612345678", "tracy.nl",
+      "Tracy", "selected theme", "noord-holland", "random zip");
+
+
+    ResponseEntity<Initiative> responseEntity = this.restTemplate.postForEntity("/initiative", initiative, Initiative.class);
+
+    assertNotNull(responseEntity.getBody());
 //    assertEquals(HttpStatus.CREATED,responseEntity.getStatusCode());
-//    assertEquals(4, responseEntity.getBody().getId());
-//
-//
-//  }
-//
+    assertEquals(4, responseEntity.getBody().getId());
+
+
+  }
+
 
 }
