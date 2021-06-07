@@ -36,9 +36,11 @@ describe('NavbarComponent', () => {
    * @author taherabalhas
    */
   it('should contain correct url of inspiration', () => {
+    // arrange (getting UI components)
     const all = fixture.debugElement.queryAll(By.css('a'));
     const href = all[1].nativeElement.getAttribute('routerLink');
 
+    // Assert: checking if the navbar contains the correct url for inspiration
     expect(href).toEqual('/inspiration');
   });
 
@@ -46,9 +48,11 @@ describe('NavbarComponent', () => {
    * @author taherabalhas
    */
   it('should contain correct url of signup', () => {
+    // arrange (getting UI components)
     const buttons = fixture.debugElement.queryAll(By.css('button'));
     const href = buttons[1].nativeElement.getAttribute('routerLink');
 
+    // Assert: checking if the navbar contains the correct url for signup
     expect(href).toEqual('/signup');
   });
 

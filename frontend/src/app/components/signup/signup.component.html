@@ -3,7 +3,7 @@
     <h3>Sign Up</h3>
     <form (ngSubmit)="onSignUp()">
       <input type="text" name="username" placeholder="new username" id="username" [(ngModel)]="username" [ngModelOptions]="{standalone: true}">
-      <input type="text" name="password" id="password"  placeholder="password" [(ngModel)]="password" #pwField="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$">
+      <input type="text" name="password" placeholder="password" id="password" [(ngModel)]="password" #pwField="ngModel" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[.?!@#$%^&*_=+-]).{8,}$">
       <div *ngIf="!pwField.valid">Your password should contain at least:<br> 8 characters,<br> one digit,<br> one upper-case,<br> one special character (ex: .?!@#$%^&*_=+-).</div>
       <input type="text" name="confirmPassword" id="confirmPassword" placeholder="confirm password" [(ngModel)]="confirmPassword" [ngModelOptions]="{standalone: true}">
         <label for="userType" style="padding-top: 7px; color: dimgrey">

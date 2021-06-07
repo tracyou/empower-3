@@ -1,4 +1,4 @@
-import {ComponentFixture, fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import { SignupComponent } from './signup.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -34,16 +34,17 @@ describe('SignupComponent', () => {
   /**
    * @author taherabalhas
    */
-  it('should pop alert when fields are empty', () => {
+  it('should pop alert when signup fields are empty', () => {
     spyOn(window, 'alert');
-    // arrange (getting UI components)
+    // Arrange (getting UI component)
     const button = fixture.debugElement.nativeElement.querySelector('#signupButton');
     fixture.detectChanges(); // Angular should be updated
 
-    // Act: Performing search
+    // Act: Inserting no values, keeping fields empty
     button.click();
     fixture.detectChanges(); // Angular should be updated
 
+    // Assert: checking if an alert will pop
     expect(window.alert).toHaveBeenCalledWith('All fields must be filled');
   });
 
@@ -62,16 +63,23 @@ describe('SignupComponent', () => {
     const button = fixture.debugElement.nativeElement.querySelector('#signupButton');
     fixture.detectChanges(); // Angular should be updated
 
-    // Act: Performing search
+    // Act: Inserting values
     usernameInput.value = 'Tahera2000';
     passwordInput.value = 'user123!';
     confirmPasswordInput.value = 'user123!';
     usertTypeInput.value = 'Initiative';
     titleInput.value = 'Good Energy';
     descriptionInput.value = 'very nice and cool';
-    component.isFilled();
-    component.pattern.test(passwordInput.value);
+
+    usernameInput.dispatchEvent(new Event('input'));
+    passwordInput.dispatchEvent(new Event('input'));
+    confirmPasswordInput.dispatchEvent(new Event('input'));
+    usertTypeInput.dispatchEvent(new Event('input'));
+    titleInput.dispatchEvent(new Event('input'));
+    descriptionInput.dispatchEvent(new Event('input'));
+
     button.click();
+    fixture.detectChanges(); // Angular should be updated
 
     // Assert: checking if an alert will pop
     expect(window.alert).toBeTruthy();

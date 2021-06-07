@@ -7,7 +7,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 
 describe('InspirationComponent', () => {
   let component: InspirationComponent;
-  // let componentHtml: HTMLElement;
   let fixture: ComponentFixture<InspirationComponent>;
 
   beforeEach(async () => {
@@ -28,15 +27,16 @@ describe('InspirationComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
   /**
    * @author taherabalhas
    */
   it('should use trainingModule from the service', () => {
+    // Arrange (getting training module service)
     const trainingModuleService = fixture.debugElement.injector.get(TrainingModuleService);
+
+    // Act: Performing something
+
+    // Assert: checking if modules in service is equal to modules in component
     expect(trainingModuleService.modules.length).toEqual(component.modules.length);
   });
 });
