@@ -14,7 +14,7 @@ import java.util.Optional;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * @author of tests 1, 2, 3 and 4 is taherabalhas
+ * @author of tests 1, 2, 3 and 4 is taherabalhas, 5 is Zakaria Raoudani
  */
 
 @SpringBootTest
@@ -56,4 +56,14 @@ public class TestUserRepository {
     repository.deleteById(14); // last time deleted 13
     assertEquals(Optional.empty(), repository.findById(14));
   }
+
+  @Test
+  @Order(5)
+  void testFindUser() {
+    Optional<User> u = repository.findById(7);
+    assertEquals("User1234!", u.get().getUsername());
+  }
+
+
+
 }

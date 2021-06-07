@@ -4,8 +4,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {InitiativeService} from '../../../services/initiative.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
-import {ProfileComponent} from "../profile/profile.component";
-import {NavbarComponent} from "../../navbar/navbar.component";
+import {ProfileComponent} from '../profile/profile.component';
 import {By} from '@angular/platform-browser';
 import { MapComponent } from './map.component';
 
@@ -83,5 +82,14 @@ describe('MapComponent', () => {
     fixture.detectChanges();
     fixture2.detectChanges();
     expect(fixture2.nativeElement.querySelector('h3').textContent).toContain('[Name of Local Initiative]');
+  });
+  /**
+   * @author Zakaria Radouani
+   */
+  it('should give an alert with the message that all fields must be filled', () => {
+    const submitButton = fixture.debugElement.nativeElement.querySelector('#sumbitButton');
+    submitButton.click();
+    fixture.detectChanges();
+    expect(alert('All fields must be filled'));
   });
 });

@@ -50,7 +50,7 @@ export class LoginPageComponent implements OnInit {
         alert('Incorrect password, try again!');
       }
     } else {
-      alert('This username does not exist!');
+      alert('fill in correct username!');
     }
   }
 

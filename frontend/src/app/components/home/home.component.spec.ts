@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { HomeComponent } from './home.component';
+import {By} from '@angular/platform-browser';
+import {all} from 'codelyzer/walkerFactory/walkerFn';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -19,7 +21,23 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+  /**
+   * @author Zakaria Raoudani
+   */
+  it('should contain correct url of inspiration', () => {
+    const insp = fixture.debugElement.queryAll(By.css('a'));
+    const href = insp[1].nativeElement.getAttribute('routerLink');
+
+    expect(href).toEqual('/inspiration');
+  });
+
+  /**
+   * @author Zakaria Raoudani
+   */
+  it('should contain correct url of inspiration', () => {
+    const libr = fixture.debugElement.queryAll(By.css('a'));
+    const href = libr[2].nativeElement.getAttribute('routerLink');
+
+    expect(href).toEqual('/inspiration');
   });
 });
