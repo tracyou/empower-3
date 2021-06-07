@@ -2,15 +2,26 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import {By} from '@angular/platform-browser';
-import {by} from 'protractor';
+import {LibraryComponent} from '../library/library.component';
+import {MapComponent} from '../local-initiative/map/map.component';
+import {InitiativeService} from '../../services/initiative.service';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
+  let fixture2: ComponentFixture<LibraryComponent>;
+  let fixture3: ComponentFixture<MapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [ NavbarComponent ],
+      imports: [HttpClientTestingModule,
+        RouterTestingModule.withRoutes(
+          [{path: 'initiative', component: MapComponent}]
+        )],
+      providers: [InitiativeService]
     })
     .compileComponents();
   });
@@ -40,4 +51,31 @@ describe('NavbarComponent', () => {
 
     expect(href).toEqual('/signup');
   });
+
+  /**
+   * @author Tracy Owusu
+   */
+  it('should show the library with videos', () => {
+    fixture2 = TestBed.createComponent(LibraryComponent);
+    const linkToLibrary = fixture.debugElement.nativeElement.querySelector('#videoLibrary');
+    linkToLibrary.click();
+    fixture.detectChanges();
+    fixture2.detectChanges();
+    expect(fixture2.nativeElement.querySelector('iframe').toBeTrue);
+  });
+
+  /**
+   * @author Tracy Owusu
+   */
+  it('should show the local initiative page', () => {
+    fixture3 = TestBed.createComponent(MapComponent);
+
+    const localInitiative = fixture.debugElement.nativeElement.querySelector('#localInitiative');
+
+    localInitiative.click();
+    fixture.detectChanges();
+    fixture3.detectChanges();
+    expect(fixture3.nativeElement.querySelector('h3').textContent).toContain('Local initiative:');
+  });
+
 });

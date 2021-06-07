@@ -59,5 +59,17 @@ public class TestTrainingModuleRepository {
 
     assertEquals(3, modules.size());
 
+}
 
-}}
+  /**
+   * @author Tracy Owusu
+   */
+  @Test
+  void adANewModule() {
+    TrainingModule trainingModule = new TrainingModule("Sustainability", TrainingModule.Tool.Guide, TrainingModule.Theme.PublicPart,
+      TrainingModule.Location.France, TrainingModule.Language.English);
+    repository.save(trainingModule);
+    assertNotNull(trainingModule);
+    assertEquals("Sustainability", trainingModule.getName());
+  }
+}

@@ -6,8 +6,8 @@ import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
 import {ProfileComponent} from '../profile/profile.component';
 import {By} from '@angular/platform-browser';
-import { MapComponent } from './map.component';
-
+import {MapComponent} from './map.component';
+import {Initiative} from '../../../models/initiative';
 
 
 describe('MapComponent', () => {
@@ -31,16 +31,6 @@ describe('MapComponent', () => {
     fixture = TestBed.createComponent(MapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  /**
-   * @author Tracy Owusu
-   */
-  it('it should give an alert', () => {
-    const submitButton = fixture.debugElement.nativeElement.querySelector('#sumbitButton');
-    submitButton.click();
-    fixture.detectChanges();
-    expect(alert).toBeTruthy();
   });
 
   /**
@@ -83,6 +73,16 @@ describe('MapComponent', () => {
     fixture2.detectChanges();
     expect(fixture2.nativeElement.querySelector('h3').textContent).toContain('[Name of Local Initiative]');
   });
+
+  /**
+   * @author Tracy Owusu
+   */
+  it('should get all initiatives from the service', () => {
+    const initiativeService = fixture.debugElement.injector.get(InitiativeService);
+    expect(0).toEqual(initiativeService.initiativeList.length);
+  });
+
+
   /**
    * @author Zakaria Radouani
    */

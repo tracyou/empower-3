@@ -1,10 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LocalAuthorityComponent } from './local-authority.component';
+import {LocalAuthorityComponent} from './local-authority.component';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
 import {RouterTestingModule} from '@angular/router/testing';
-import {ProfileComponent} from "../local-initiative/profile/profile.component";
 
 describe('LocalAuthorityComponent', () => {
   let component: LocalAuthorityComponent;
@@ -12,13 +11,13 @@ describe('LocalAuthorityComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LocalAuthorityComponent ],
+      declarations: [LocalAuthorityComponent],
       imports: [HttpClientTestingModule, FormsModule,
         RouterTestingModule.withRoutes(
-          [{ path: 'authority', component: LocalAuthorityComponent}]
+          [{path: 'authority', component: LocalAuthorityComponent}]
         )],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
