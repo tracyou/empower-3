@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
 
   // tslint:disable-next-line:typedef
   ngOnInit() {
-    this.renderMap();
+    // this.renderMap();
     this.initiativeList = this.initiativeService.initiativeList;
     console.log(this.initiativeList);
   }

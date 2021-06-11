@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,6 +26,17 @@ public class InitiativeController {
   public ResponseEntity<List<Initiative>> getAllInitiatative(){
     List<Initiative> initiatives = initiativeRepository.findAll();
     return new ResponseEntity<>(initiatives, HttpStatus.OK);
+  }
+
+  @GetMapping("initiative/last")
+  public ResponseEntity<List<Initiative>> getLastInitiatative(){
+    List<Initiative> initiatives2 = initiativeRepository.findAll();
+    Initiative initiatives = initiativeRepository.getOne(initiatives2.size());
+
+    List<Initiative> initiativeList = new ArrayList<>();
+    initiativeList.add(initiatives);
+
+    return new ResponseEntity<>(initiativeList, HttpStatus.OK);
   }
 
   @PostMapping("initiative")

@@ -19,6 +19,10 @@ export class InitiativeService {
     return this.http.get<any>('http://localhost:8080/initiative');
   }
 
+  public getLastInitiative(): Observable<Initiative>{
+    return this.http.get<Initiative>('http://localhost:8080/initiative/last');
+  }
+
   public postInitiatative(initiative: Initiative): Observable<Initiative>{
     return this.http.post<Initiative>('http://localhost:8080/initiative', initiative);
   }
