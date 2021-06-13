@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {InitiativeService} from '../../../services/initiative.service';
 import {Initiative} from '../../../models/initiative';
 import {Observable} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -13,7 +14,8 @@ export class ProfileComponent implements OnInit {
   // initiativeList: Initiative;
 
 
-  constructor(private initiativeService: InitiativeService, private initiative: Observable<Initiative>) {
+  constructor(private router: Router) {
+    console.log(this.router.getCurrentNavigation().extras.state.example); // should log out 'bar'
   }
 
   ngOnInit(): void {

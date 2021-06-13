@@ -50,10 +50,10 @@ export class MapComponent implements OnInit {
   }
 
   newInitiative(): Initiative {
-    return new Initiative(this.city, this.state, this.zip, this.name, this.date, this.selectTheme, this.goalReduce, this.goalImprove,
-      this.goalGreen, this.goalCreate, this.goalFootprint, this.gridRadios, this.gridRadios2, this.gridRadios3, this.gridRadios4,
-      this.collaboration, this.gridExpertise1, this.gridExpertise2, this.gridExpertise3, this.inputEmail, this.inputWebsite,
-      this.inputPhone);
+    return new Initiative(this.city, this.collaboration, this.date, this.goalCreate, this.goalFootprint, this.goalGreen,
+      this.goalImprove, this.goalReduce, this.gridExpertise1, this.gridExpertise2, this.gridExpertise3, this.gridRadios,
+      this.gridRadios2, this.gridRadios3, this.gridRadios4, this.inputEmail, this.inputPhone, this.inputWebsite, this.name,
+      this.selectTheme, this.state, this.zip);
   }
 
   // loadMap = () => {
@@ -111,7 +111,7 @@ export class MapComponent implements OnInit {
     if (this.isFilled()){
       const newInitiative = this.newInitiative();
       this.initiativeService.save(newInitiative);
-      this.router.navigate(['/profileInitiative']);
+      this.router.navigate(['/profileInitiative'], { state: { data: this.name }});
     } else {
       alert('All fields must be filled');
     }
