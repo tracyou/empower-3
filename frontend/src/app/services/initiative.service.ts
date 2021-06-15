@@ -19,23 +19,20 @@ export class InitiativeService {
     return this.http.get<any>('http://localhost:8080/initiative');
   }
 
-  public getLastInitiative(): Observable<Initiative>{
-    return this.http.get<Initiative>('http://localhost:8080/initiative/last');
-  }
 
   public postInitiatative(initiative: Initiative): Observable<Initiative>{
     return this.http.post<Initiative>('http://localhost:8080/initiative', initiative);
   }
 
   save(initiative: Initiative): Initiative | null {
-    const index = this.initiativeList.findIndex((item) => item.inputEmail === initiative.inputEmail);
-    if (index < 0) {
+    // const index = this.initiativeList.findIndex((item) => item.inputEmail === initiative.inputEmail);
+    // if (index < 0) {
       this.postInitiatative(initiative).subscribe(data => {
         this.initiativeList.push(data);
         console.log(data);
         return data;
       });
-    }
-    return initiative;
+    // }
+      return initiative;
   }
 }
