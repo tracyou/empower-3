@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
 
   constructor(private router: Router) {
-    console.log(this.router.getCurrentNavigation().extras.state.data); // should log out 'bar'
+    // console.log(this.router.getCurrentNavigation().extras.state.data); // should log out 'bar'
   }
 
   ngOnInit(): void {

@@ -111,8 +111,9 @@ export class MapComponent implements OnInit {
     if (this.isFilled()){
       const newInitiative = this.newInitiative();
       this.initiativeService.save(newInitiative);
-      this.router.navigate(['/profileInitiative'], { state: { data: newInitiative}});
-      console.log(this.initiativeList);
+      this.router.navigate(['/profileInitiative']);
+      // this.router.navigate(['/profileInitiative'], { state: { data: newInitiative}});
+      // console.log(this.initiativeList);
     } else {
       alert('All fields must be filled');
     }

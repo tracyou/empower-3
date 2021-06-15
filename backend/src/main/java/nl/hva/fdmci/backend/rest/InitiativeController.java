@@ -28,17 +28,6 @@ public class InitiativeController {
     return new ResponseEntity<>(initiatives, HttpStatus.OK);
   }
 
-  @GetMapping("initiative/last")
-  public ResponseEntity<List<Initiative>> getLastInitiatative(){
-    List<Initiative> initiatives2 = initiativeRepository.findAll();
-    Initiative initiatives = initiativeRepository.getOne(initiatives2.size());
-
-    List<Initiative> initiativeList = new ArrayList<>();
-    initiativeList.add(initiatives);
-
-    return new ResponseEntity<>(initiativeList, HttpStatus.OK);
-  }
-
   @PostMapping("initiative")
   public ResponseEntity<Initiative> addInitiatative(@RequestBody Initiative initiative){
     Initiative newInitiative = initiativeRepository.save(initiative);
