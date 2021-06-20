@@ -99,24 +99,24 @@ public class TestUserRepository {
   void testCreatingUserShouldSucceed() throws URISyntaxException {
 
     // Arrange
-    User user = new User("User1234!","User1234!", "test", "test1", "test12" );
+    User user = new User(20, "User1233!", "User1233!", "test", "test1", "test12");
 
     // Act: Creating a user
     ResponseEntity<User> creationResult
-      = this.restTemplate.postForEntity("/users", user, User.class);
+      = this.restTemplate.postForEntity("http://localhost:8080/users", user, User.class);
 
     // Assert: Checking if the response is correct
     assertEquals(creationResult.getStatusCode(), HttpStatus.CREATED);
-    assertNotNull(creationResult.getBody().getId());
-    assertEquals(user.getUsername(),creationResult.getBody().getUsername());
-    assertEquals(user.getPassword(),creationResult.getBody().getPassword());
-    assertEquals(user.getUserType(),creationResult.getBody().getUserType());
-    assertEquals(user.getTitle(),creationResult.getBody().getTitle());
-    assertEquals(user.getDescription(),creationResult.getBody().getDescription());
+    assertEquals(user.getId(), creationResult.getBody().getId());
+    assertEquals(user.getUsername(), creationResult.getBody().getUsername());
+    assertEquals(user.getPassword(), creationResult.getBody().getPassword());
+    assertEquals(user.getUserType(), creationResult.getBody().getUserType());
+    assertEquals(user.getTitle(), creationResult.getBody().getTitle());
+    assertEquals(user.getDescription(), creationResult.getBody().getDescription());
 
 
     // Act: Cross-check results - was the user persisted?
-    ResponseEntity<User> queryResult = this.restTemplate.getForEntity("/users" + creationResult.getBody().getId(), User.class);
+    ResponseEntity<User> queryResult = this.restTemplate.getForEntity("http://localhost:8080/users/" + creationResult.getBody().getId(), User.class);
 
     // Assert: Check if data is correct
     assertEquals(queryResult.getStatusCode(), HttpStatus.OK);

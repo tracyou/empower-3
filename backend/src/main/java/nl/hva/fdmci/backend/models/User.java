@@ -36,6 +36,15 @@ public class User {
 
   }
 
+  public User(int ID, String username, String password, String userType, String title, String description) {
+   this.id=ID;
+    this.username = username;
+    this.password = password;
+    this.userType = userType;
+    this.title = title;
+    this.description = description;
+  }
+
   public static User createRandomUser(int id) {
     return new User( "loser101", "hi123", "local initiative", "nice initiative", "we're very nice");
   }
