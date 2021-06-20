@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginPageComponent } from './login-page.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 /**
  * @author Zakaria Raoudani
  */
@@ -12,7 +13,7 @@ describe('InlogpaginaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginPageComponent ]
+      declarations: [ LoginPageComponent ], imports: [HttpClientTestingModule, 'routerLink']
     })
     .compileComponents();
   });
@@ -25,9 +26,10 @@ describe('InlogpaginaComponent', () => {
   });
 
   it('should give alert when  giving a wrong username', () => {
+    const searchInput = fixture.debugElement.nativeElement.querySelector ('#searchString');
     const loginButton = fixture.debugElement.nativeElement.querySelector ('#submitButton');
 
-
+    searchInput.value = 'dsfsadf';
     loginButton.click();
     fixture.detectChanges();
 

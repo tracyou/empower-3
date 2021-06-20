@@ -39,7 +39,7 @@ public class TestTrainingModuleRepository {
   @Order(2)
   void testGetModulesByTheme() {
     String theme = "Heating";
-    List<TrainingModule> modules = repository.findByQuery("find_by_tool", TrainingModule.Tool.valueOf(theme));
+    List<TrainingModule> modules = repository.findByQuery("find_by_theme", TrainingModule.Theme.valueOf(theme));
 
     assertEquals(4, modules.size());
   }
@@ -48,7 +48,7 @@ public class TestTrainingModuleRepository {
   @Order(3)
   void testGetModulesByLocation() {
     String location = "Netherlands";
-    List<TrainingModule> modules = repository.findByQuery("find_by_tool", TrainingModule.Tool.valueOf(location));
+    List<TrainingModule> modules = repository.findByQuery("find_by_location", TrainingModule.Location.valueOf(location));
 
     assertEquals(1, modules.size());
   }
@@ -57,7 +57,7 @@ public class TestTrainingModuleRepository {
   @Order(4)
   void testGetModulesByLanguage() {
     String language = "Dutch";
-    List<TrainingModule> modules = repository.findByQuery("find_by_tool", TrainingModule.Tool.valueOf(language));
+    List<TrainingModule> modules = repository.findByQuery("find_by_language", TrainingModule.Language.valueOf(language));
 
     assertEquals(3, modules.size());
 

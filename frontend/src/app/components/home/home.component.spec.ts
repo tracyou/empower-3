@@ -26,7 +26,7 @@ describe('HomeComponent', () => {
    */
   it('should contain correct url of inspiration', () => {
     const insp = fixture.debugElement.queryAll(By.css('a'));
-    const href = insp[1].nativeElement.getAttribute('routerLink');
+    const href = insp[0].nativeElement.getAttribute('routerLink');
 
     expect(href).toEqual('/inspiration');
   });
@@ -36,8 +36,8 @@ describe('HomeComponent', () => {
    */
   it('should contain correct url of inspiration', () => {
     const libr = fixture.debugElement.queryAll(By.css('a'));
-    const href = libr[2].nativeElement.getAttribute('routerLink');
+    const href = libr[1].nativeElement.getAttribute('routerLink');
 
-    expect(href).toEqual('/inspiration');
+    expect(href).toEqual('/library');
   });
 });
