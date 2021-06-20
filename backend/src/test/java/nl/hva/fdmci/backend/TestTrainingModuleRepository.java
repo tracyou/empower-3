@@ -74,4 +74,5 @@ public class TestTrainingModuleRepository {
     assertNotNull(trainingModule);
     assertEquals("Sustainability", trainingModule.getName());
   }
+
 }

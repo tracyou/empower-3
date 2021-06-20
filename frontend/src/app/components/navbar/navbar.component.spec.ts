@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
 import {By} from '@angular/platform-browser';
-import {LibraryComponent} from '../library/library.component';
 import {MapComponent} from '../local-initiative/map/map.component';
 import {InitiativeService} from '../../services/initiative.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
@@ -11,8 +10,6 @@ import {RouterTestingModule} from '@angular/router/testing';
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
-  let fixture2: ComponentFixture<LibraryComponent>;
-  let fixture3: ComponentFixture<MapComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -60,26 +57,20 @@ describe('NavbarComponent', () => {
    * @author Tracy Owusu
    */
   it('should show the library with videos', () => {
-    fixture2 = TestBed.createComponent(LibraryComponent);
-    const linkToLibrary = fixture.debugElement.nativeElement.querySelector('#videoLibrary');
-    linkToLibrary.click();
-    fixture.detectChanges();
-    fixture2.detectChanges();
-    expect(fixture2.nativeElement.querySelector('iframe').toBeTrue);
+    const link = fixture.debugElement.queryAll(By.css('a'));
+    const href = link[4].nativeElement.getAttribute('routerLink');
+
+    expect(href).toEqual('/library');
   });
 
   /**
    * @author Tracy Owusu
    */
   it('should show the local initiative page', () => {
-    fixture3 = TestBed.createComponent(MapComponent);
+    const link = fixture.debugElement.queryAll(By.css('a'));
+    const href = link[3].nativeElement.getAttribute('routerLink');
 
-    const localInitiative = fixture.debugElement.nativeElement.querySelector('#localInitiative');
-
-    localInitiative.click();
-    fixture.detectChanges();
-    fixture3.detectChanges();
-    expect(fixture3.nativeElement.querySelector('h3').textContent).toContain('Local initiative:');
+    expect(href).toEqual('/initiative');
   });
 
 });

@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 
 import javax.persistence.criteria.CriteriaBuilder;
 import java.util.ArrayList;
+import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -62,16 +63,7 @@ public class TestInitiativeRepository {
    * @author Tracy Owusu
    */
   @Test
-  void getInitiativeDatabase() {
-    repositoryInterface.findAll();
-    assertEquals("[]", repositoryInterface.findAll().toString());
-  }
-
-  /**
-   * @author Tracy Owusu
-   */
-  @Test
-  void attemptToPostInADifferentWay() {
+  void postWithController() {
     Initiative initiative = new Initiative(4, "Amsterdam", "Getting Technical Support", "29-01-2012",
       "not selected", "selected", "selected", "not selected", "selected",
       "example 1", "example 2", "example 3", "Radio 1", "Radio 2",
@@ -80,6 +72,31 @@ public class TestInitiativeRepository {
 
     controller.addInitiatative(initiative);
     assertNotNull(initiative);
+  }
+
+
+  /**
+   * @author Tracy Owusu
+   */
+  @Test
+  void attemptToPostInADifferentWay() {
+    ResponseEntity<Initiative[]> result = this.restTemplate.getForEntity("http://localhost:8080/initiative", Initiative[].class);
+    assertEquals(HttpStatus.OK, result.getStatusCode());
+    int length = result.getBody().length;
+
+    Initiative initiative = new Initiative((int) (Math.random() * (50 - 1 + 1)), "Amsterdam", "Getting Technical Support", "29-01-2012",
+      "not selected", "selected", "selected", "not selected", "selected",
+      "example 1", "example 2", "example 3", "Radio 1", "Radio 2",
+      "Radio 3", "Radio 4", "tracy@gmail.com", "0612345678", "tracy.nl",
+      "Tracy", "selected theme", "noord-holland", "random zip");
+
+    ResponseEntity<Initiative> addNew = this.restTemplate.postForEntity("http://localhost:8080/initiative", initiative, Initiative.class);
+    assertEquals(HttpStatus.ACCEPTED, addNew.getStatusCode());
+
+    ResponseEntity<Initiative[]> result2 = this.restTemplate.getForEntity("http://localhost:8080/initiative", Initiative[].class);
+    assertEquals(HttpStatus.OK, result.getStatusCode());
+    assertEquals(length + 1, result2.getBody().length);
+
   }
 
 

@@ -5,15 +5,13 @@ import {InitiativeService} from '../../../services/initiative.service';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
 import {ProfileComponent} from '../profile/profile.component';
-import {By} from '@angular/platform-browser';
 import {MapComponent} from './map.component';
-import {Initiative} from '../../../models/initiative';
 
 
 describe('MapComponent', () => {
   let component: MapComponent;
   let fixture: ComponentFixture<MapComponent>;
-  let fixture2: ComponentFixture<ProfileComponent>;
+
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -37,8 +35,6 @@ describe('MapComponent', () => {
    * @author Tracy Owusu
    */
   it('should post a new initiative and send you to the local initiative profile page', () => {
-    fixture2 = TestBed.createComponent(ProfileComponent);
-
     const city = fixture.debugElement.nativeElement.querySelector('#city');
     const state = fixture.debugElement.nativeElement.querySelector('#state');
     const zip = fixture.debugElement.nativeElement.querySelector('#zip');
@@ -70,18 +66,10 @@ describe('MapComponent', () => {
 
     submitButton.click();
     fixture.detectChanges();
-    fixture2.detectChanges();
-    expect(fixture2.nativeElement.querySelector('h3').textContent).toContain('[Name of Local Initiative]');
-  });
 
-  /**
-   * @author Tracy Owusu
-   */
-  it('should get all initiatives from the service', () => {
-    const initiativeService = fixture.debugElement.injector.get(InitiativeService);
-    expect(0).toEqual(initiativeService.initiativeList.length);
-  });
+    expect(alert('Your Initiative ' + initiativeName.value + ' has been saved'));
 
+  });
 
   /**
    * @author Zakaria Radouani

@@ -43,6 +43,7 @@ export class ProfileComponent implements OnInit {
   }
 
   dataProfile(): void {
+
     this.name = this.initiative.name;
     this.location = this.initiative.city + ' ' + this.initiative.state + ' ' + this.initiative.zip;
     this.date = this.initiative.date;
