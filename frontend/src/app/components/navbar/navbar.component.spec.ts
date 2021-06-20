@@ -56,7 +56,7 @@ describe('NavbarComponent', () => {
   /**
    * @author Tracy Owusu
    */
-  it('should show the library with videos', () => {
+  it('should contain correct url of the library with videos', () => {
     const link = fixture.debugElement.queryAll(By.css('a'));
     const href = link[4].nativeElement.getAttribute('routerLink');
 
@@ -66,7 +66,7 @@ describe('NavbarComponent', () => {
   /**
    * @author Tracy Owusu
    */
-  it('should show the local initiative page', () => {
+  it('should have to url of the local initiative page', () => {
     const link = fixture.debugElement.queryAll(By.css('a'));
     const href = link[3].nativeElement.getAttribute('routerLink');
 
